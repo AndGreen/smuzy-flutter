@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Smuzy',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark().copyWith(
+          appBarTheme: const AppBarTheme(color: Color(0xff121212)),
+          scaffoldBackgroundColor: Colors.black),
       home: HomeScreen(),
     );
   }
