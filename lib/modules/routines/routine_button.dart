@@ -1,43 +1,37 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
+import 'package:styled_widget/styled_widget.dart';
 
-class RoutineButton extends StatelessWidget {
-  const RoutineButton({
-    Key? key,
-    required this.color,
-    required this.title,
-  }) : super(key: key);
+import '../../common/theme/colors.dart';
 
-  final Color color;
-  final String title;
+part 'routine_button.g.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: AppColors.gray, borderRadius: BorderRadius.circular(8)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+@swidget
+Widget colorCircle({
+  required Color color,
+}) {
+  return const SizedBox(
+    width: 18,
+    height: 18,
+  ).decorated(color: color, shape: BoxShape.circle).padding(right: 8);
+}
+
+@swidget
+Widget routineButton({
+  required Color color,
+  required String title,
+}) {
+  return SizedBox(
           child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Container(
-                  width: 15,
-                  height: 15,
-                  decoration: BoxDecoration(
-                      color: color, borderRadius: BorderRadius.circular(10)),
-                ),
-              ),
-              Text(
-                title,
-                style: AppFonts.text,
-              )
-            ],
-          ),
-        ));
-  }
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      colorCircle(color: color),
+      Text(
+        title,
+        style: AppFonts.text,
+      )
+    ],
+  ).padding(horizontal: 12, vertical: 10))
+      .decorated(color: AppColors.gray, borderRadius: BorderRadius.circular(8));
 }
