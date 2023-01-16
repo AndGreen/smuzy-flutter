@@ -16,7 +16,13 @@ Widget routinesList() {
         runSpacing: 10,
         children: [
           ...c.routines.map(
-            (e) => RoutineButton(color: e.color, title: e.title),
+            (routine) => RoutineButton(
+                color: routine.color,
+                title: routine.title,
+                isActive: routine.id == c.activeRoutine.value?.id,
+                onTap: () {
+                  c.toggleActiveRoutine(routine);
+                }),
           )
         ],
       ).padding(vertical: 12, horizontal: 10));

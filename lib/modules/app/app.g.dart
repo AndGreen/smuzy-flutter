@@ -10,5 +10,5 @@ class App extends HookWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => app();
+  Widget build(BuildContext _context) => app();
 }

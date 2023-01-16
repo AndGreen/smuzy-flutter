@@ -15,7 +15,7 @@ class ColorCircle extends StatelessWidget {
   final Color color;
 
   @override
-  Widget build(BuildContext context) => colorCircle(color: color);
+  Widget build(BuildContext _context) => colorCircle(color: color);
 }
 
 class RoutineButton extends StatelessWidget {
@@ -23,15 +23,23 @@ class RoutineButton extends StatelessWidget {
     Key? key,
     required this.color,
     required this.title,
+    required this.onTap,
+    required this.isActive,
   }) : super(key: key);
 
   final Color color;
 
   final String title;
 
+  final Function onTap;
+
+  final bool isActive;
+
   @override
-  Widget build(BuildContext context) => routineButton(
+  Widget build(BuildContext _context) => routineButton(
         color: color,
         title: title,
+        onTap: onTap,
+        isActive: isActive,
       );
 }
