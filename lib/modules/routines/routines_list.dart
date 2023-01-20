@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-import 'package:get/get.dart';
-import 'package:smuzy_flutter/modules/app/app_conroller.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smuzy_flutter/modules/routines/routines_provider.dart';
 import 'package:smuzy_flutter/modules/routines/routine_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 part 'routines_list.g.dart';
 
-@swidget
-Widget routinesList() {
-  AppController c = Get.find();
+@hcwidget
+Widget routinesList(WidgetRef ref) {
+  final routinesState = ref.watch(routinesProvider);
 
-  return Obx(() => Wrap(
-        spacing: 10,
-        runSpacing: 10,
-        children: [
-          ...c.routines.map(
-            (routine) => RoutineButton(
-                color: routine.color,
-                title: routine.title,
-                isActive: routine.id == c.activeRoutine.value?.id,
-                onTap: () {
-                  c.toggleActiveRoutine(routine);
-                }),
-          )
-        ],
-      ).padding(vertical: 12, horizontal: 10));
+  return Wrap(
+    spacing: 10,
+    runSpacing: 2,
+    children: [
+      ...routinesState.routines.map(
+        (routine) => RoutineButton(
+            color: routine.color,
+            title: routine.title,
+            isActive: routine.id == routinesState.activeIdRoutine,
+            onTap: () {
+              ref.read(routinesProvider.notifier).toggleActiveRoutine(routine);
+            }),
+      )
+    ],
+  ).padding(vertical: 8, horizontal: 8);
 }

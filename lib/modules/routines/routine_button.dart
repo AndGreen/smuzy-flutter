@@ -32,22 +32,26 @@ Widget routineButton({
   required Function onTap,
   required bool isActive,
 }) {
-  return GestureDetector(
-    onTap: () => onTap(),
-    child: SizedBox(
-            child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        colorCircle(color: color),
-        Text(
-          title,
-          style: AppFonts.text
-              .copyWith(color: isActive ? AppColors.grayDark : AppColors.white),
-        )
-      ],
-    ).padding(horizontal: 12, vertical: 10))
-        .decorated(
-            color: isActive ? AppColors.white : AppColors.gray,
-            borderRadius: BorderRadius.circular(8)),
-  );
+  return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: getButtonColor(isActive),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      onPressed: () {
+        onTap();
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          colorCircle(color: color),
+          Text(
+            title,
+            style: AppFonts.text.copyWith(
+                color: isActive ? AppColors.grayDark : AppColors.white),
+          )
+        ],
+      ));
 }

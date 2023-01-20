@@ -6,9 +6,13 @@ part of 'routines_list.dart';
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class RoutinesList extends StatelessWidget {
+class RoutinesList extends HookConsumerWidget {
   const RoutinesList({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext _context) => routinesList();
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) =>
+      routinesList(ref);
 }

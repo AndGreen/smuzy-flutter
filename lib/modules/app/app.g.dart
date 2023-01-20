@@ -6,7 +6,7 @@ part of 'app.dart';
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class App extends HookWidget {
+class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   @override

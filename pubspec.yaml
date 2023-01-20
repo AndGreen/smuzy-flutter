@@ -35,8 +35,10 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   functional_widget_annotation: ^0.10.0
   get: ^4.6.5
+  hooks_riverpod: ^2.1.3
   intl: ^0.18.0
   ionicons: ^0.2.1
+  riverpod_annotation: ^1.1.1
   styled_widget: ^0.4.1
   uuid: ^3.0.6
 
@@ -46,7 +48,10 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  freezed: ^2.3.2
   functional_widget: ^0.10.1
+  go_router: ^6.0.1
+  riverpod_generator: ^1.1.1
 
 flutter_icons:
   android: "launcher_icon"
