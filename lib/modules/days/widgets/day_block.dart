@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/modules/days/days_provider.dart';
 import 'package:smuzy_flutter/modules/routines/routines_provider.dart';
 import 'package:collection/collection.dart'; // You have to add this manually, for some reason it cannot be added automatically
@@ -17,7 +18,7 @@ class DayBlock extends HookConsumerWidget {
   final int col;
   final int row;
 
-  BorderSide getRightBorderSize(int index) {
+  double getRightBorderSize(int index) {
     // TODO: pattern matching:
     var borderSize = 1.0;
     if ((index + 1) % 3 == 0) {
@@ -26,7 +27,7 @@ class DayBlock extends HookConsumerWidget {
     if (index == 8) {
       borderSize = 0;
     }
-    return BorderSide(width: borderSize);
+    return borderSize;
   }
 
   @override
@@ -54,31 +55,40 @@ class DayBlock extends HookConsumerWidget {
             (element) => element.id == routinesState.activeIdRoutine)
         ?.color;
 
-    return SizedBox(
-      width: blockSize,
-      height: blockSize,
-      child: Material(
+    double rightBorderSide = getRightBorderSize(col);
+    double bottomBorderSide = row != 7 ? 1 : 0;
+
+    double blockWidth = blockSize - rightBorderSide;
+    double blockHeight = blockSize - bottomBorderSide;
+
+    return Stack(children: [
+      Container(
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: bottomBorderSide > 0
+                      ? const BorderSide()
+                      : BorderSide.none,
+                  right: BorderSide(width: getRightBorderSize(col)))),
+          child: SizedBox(
+            width: blockWidth,
+            height: blockHeight,
+            child: Container(color: blockColor),
+          )),
+      Material(
+        color: Colors.transparent,
         child: InkWell(
           onTapUp: (_) {
             HapticFeedback.lightImpact();
           },
-          splashColor: activeColor,
+          splashColor: activeColor ?? AppColors.grayBg,
           onTap: () {
             ref
                 .read(daysProvider.notifier)
                 .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
           },
-          child: Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                  border: row != 7
-                      ? Border(
-                          bottom: const BorderSide(),
-                          right: getRightBorderSize(col))
-                      : Border(right: getRightBorderSize(col))),
-              child: SizedBox(child: Container(color: blockColor))),
+          child: SizedBox(width: blockSize - 1, height: blockSize),
         ),
       ),
-    );
+    ]);
   }
 }
