@@ -5,10 +5,10 @@ import 'package:smuzy_flutter/modules/routines/routines_provider.dart';
 import 'package:smuzy_flutter/modules/routines/routine_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-part 'routines_list.g.dart';
+part 'routines_section.g.dart';
 
 @hcwidget
-Widget routinesList(WidgetRef ref) {
+Widget routinesSection(WidgetRef ref) {
   final routinesState = ref.watch(routinesProvider);
 
   return Wrap(

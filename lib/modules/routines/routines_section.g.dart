@@ -1,14 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'day_screen.dart';
+part of 'routines_section.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class DayScreen extends StatelessWidget {
-  const DayScreen({Key? key}) : super(key: key);
+class RoutinesSection extends HookConsumerWidget {
+  const RoutinesSection({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext _context) => dayScreen();
+  Widget build(
+    BuildContext _context,
+    WidgetRef _ref,
+  ) =>
+      routinesSection(_ref);
 }
