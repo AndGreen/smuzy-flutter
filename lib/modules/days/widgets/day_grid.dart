@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/modules/days/widgets/day_block_row.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smuzy_flutter/modules/days/days_provider.dart';
+import 'package:smuzy_flutter/modules/days/widgets/day_block.dart';
 
-class DayGrid extends StatelessWidget {
+class DayGrid extends HookConsumerWidget {
   const DayGrid({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var state = ref.watch(daysProvider);
+
     return LayoutBuilder(builder: (context, constrains) {
       var blockSize = (constrains.maxWidth - 2) / 9;
+
       return Container(
           height: blockSize * 8 + 2,
           clipBehavior: Clip.hardEdge,
@@ -22,9 +27,14 @@ class DayGrid extends StatelessWidget {
           child: Column(
               children: List.generate(
                   8,
-                  (index) => DayBlockRow(
-                        blockSize: blockSize,
-                        row: index,
+                  (row) => Row(
+                        children: List.generate(
+                            9,
+                            (index) => DayBlock(
+                                  col: index,
+                                  row: row,
+                                  blockSize: blockSize,
+                                )),
                       ))));
     });
   }
