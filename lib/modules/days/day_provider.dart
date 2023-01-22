@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
-import 'package:smuzy_flutter/modules/days/days_utils.dart';
-import 'package:smuzy_flutter/modules/days/days_repository.dart';
+import 'package:smuzy_flutter/modules/days/day_utils.dart';
+import 'package:smuzy_flutter/modules/days/day_repository.dart';
 
 part 'days_provider.freezed.dart';
 part 'days_provider.g.dart';
@@ -28,6 +28,6 @@ class Days extends _$Days {
   colorizeDayBlock(BlockId blockId, RoutineId? routineId) {
     state = state.copyWith(
         visibleDayGrid: {...state.visibleDayGrid, blockId: routineId});
-    DaysRepository.saveDaySlice(state.visibleDayGrid);
+    DaysRepository.saveBlock(blockId, routineId);
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/modules/routines/routines_provider.dart';
+import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
 import 'package:smuzy_flutter/modules/routines/routine_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 

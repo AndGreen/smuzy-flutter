@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smuzy_flutter/modules/days/day_constants.dart';
 import 'package:smuzy_flutter/modules/days/widgets/day_block.dart';
 
 class DayGrid extends HookConsumerWidget {
@@ -23,12 +24,12 @@ class DayGrid extends HookConsumerWidget {
           ),
           child: Column(
               children: List.generate(
-                  8,
+                  rowCount,
                   (row) => Row(
                         children: List.generate(
-                            9,
-                            (index) => DayBlock(
-                                  col: index,
+                            colCount,
+                            (col) => DayBlock(
+                                  col: col,
                                   row: row,
                                   blockSize: blockSize,
                                 )),

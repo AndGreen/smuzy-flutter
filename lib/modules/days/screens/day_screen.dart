@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
 import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/days/widgets/day_section.dart';
-import 'package:smuzy_flutter/modules/routines/routines_section.dart';
+import 'package:smuzy_flutter/modules/routines/routine_section.dart';
 
 class DayScreen extends StatelessWidget {
   const DayScreen({super.key});

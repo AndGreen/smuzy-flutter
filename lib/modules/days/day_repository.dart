@@ -7,7 +7,8 @@ const daysBoxTitle = 'daysHistory';
 // TODO: use async provider?
 class DaysRepository {
   static init() async {
-    await Hive.openBox<String>(daysBoxTitle);
+    await Hive.openBox<RoutineId>(daysBoxTitle);
+    // Hive.box<RoutineId>(daysBoxTitle).clear();
   }
 
   static Map<BlockId, RoutineId?> getDaySlice(List<BlockId> blockRange) {
@@ -18,18 +19,14 @@ class DaysRepository {
         result[blockId] = Hive.box<String>(daysBoxTitle).get(blockId);
       }
     }
-
     return result;
   }
 
-  // TODO: saveOnlyOneblock, not full day:
-  static void saveDaySlice(Map<BlockId, RoutineId?> visibleDay) {
-    visibleDay.forEach((blockId, routineId) {
-      if (routineId == null) {
-        Hive.box<String>(daysBoxTitle).delete(blockId);
-      } else {
-        Hive.box<String>(daysBoxTitle).put(blockId, routineId);
-      }
-    });
+  static void saveBlock(BlockId blockId, RoutineId? routineId) {
+    if (routineId == null) {
+      Hive.box<RoutineId>(daysBoxTitle).delete(blockId);
+    } else {
+      Hive.box<RoutineId>(daysBoxTitle).put(blockId, routineId);
+    }
   }
 }

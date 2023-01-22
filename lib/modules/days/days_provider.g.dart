@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'days_provider.dart';
+part of 'day_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$DaysHash() => r'e3e9581609d1c0e4756ccb6ebf109a9d35cb6ae9';
+String _$DaysHash() => r'371d9fc68347e561610608581a342edfc19b241c';
 
 /// See also [Days].
 final daysProvider = AutoDisposeNotifierProvider<Days, DaysState>(

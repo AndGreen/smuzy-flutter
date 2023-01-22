@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
-import 'package:smuzy_flutter/modules/days/days_provider.dart';
 import 'package:collection/collection.dart';
+import 'package:smuzy_flutter/modules/days/day_constants.dart';
 
 BlockId getBlockId(DateTime day, int offset) {
   DateTime today = DateTime(day.year, day.month, day.day);
@@ -13,7 +13,7 @@ BlockId getBlockId(DateTime day, int offset) {
 
 List<BlockId> getDayBlockRange(DateTime day) {
   final firstDayBlockID = getBlockId(day, 0);
-  return List.generate(24, (index) => firstDayBlockID + index);
+  return List.generate(rowCount * colCount, (index) => firstDayBlockID + index);
 }
 
 Color? getRoutineColor(List<Routine> routines, RoutineId? routineId) {
