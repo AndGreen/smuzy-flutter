@@ -4,30 +4,37 @@ import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:smuzy_flutter/modules/days/day_utils.dart';
 import 'package:smuzy_flutter/modules/days/day_repository.dart';
 
-part 'days_provider.freezed.dart';
-part 'days_provider.g.dart';
+part 'day_provider.freezed.dart';
+part 'day_provider.g.dart';
 
 @freezed
-class DaysState with _$DaysState {
-  factory DaysState({
+class DayState with _$DayState {
+  factory DayState({
     required Map<BlockId, RoutineId?> visibleDayGrid,
     required DateTime visibleDate,
-  }) = _DaysState;
+  }) = _DayState;
 }
 
 @riverpod
-class Days extends _$Days {
+class Day extends _$Day {
   @override
-  DaysState build() {
+  DayState build() {
     final today = DateTime.now();
-    return DaysState(
-        visibleDayGrid: DaysRepository.getDaySlice(getDayBlockRange(today)),
-        visibleDate: today);
+    return DayState(visibleDayGrid: _getDayGrid(today), visibleDate: today);
+  }
+
+  _getDayGrid(DateTime day) {
+    return DaysRepository.getDaySlice(getDayBlockRange(day));
   }
 
   colorizeDayBlock(BlockId blockId, RoutineId? routineId) {
     state = state.copyWith(
         visibleDayGrid: {...state.visibleDayGrid, blockId: routineId});
     DaysRepository.saveBlock(blockId, routineId);
+  }
+
+  changeVisibleDate(DateTime newDate) {
+    state = state.copyWith(
+        visibleDate: newDate, visibleDayGrid: _getDayGrid(newDate));
   }
 }

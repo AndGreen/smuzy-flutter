@@ -15,27 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$DaysState {
+mixin _$DayState {
   Map<int, String?> get visibleDayGrid => throw _privateConstructorUsedError;
   DateTime get visibleDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DaysStateCopyWith<DaysState> get copyWith =>
+  $DayStateCopyWith<DayState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DaysStateCopyWith<$Res> {
-  factory $DaysStateCopyWith(DaysState value, $Res Function(DaysState) then) =
-      _$DaysStateCopyWithImpl<$Res, DaysState>;
+abstract class $DayStateCopyWith<$Res> {
+  factory $DayStateCopyWith(DayState value, $Res Function(DayState) then) =
+      _$DayStateCopyWithImpl<$Res, DayState>;
   @useResult
   $Res call({Map<int, String?> visibleDayGrid, DateTime visibleDate});
 }
 
 /// @nodoc
-class _$DaysStateCopyWithImpl<$Res, $Val extends DaysState>
-    implements $DaysStateCopyWith<$Res> {
-  _$DaysStateCopyWithImpl(this._value, this._then);
+class _$DayStateCopyWithImpl<$Res, $Val extends DayState>
+    implements $DayStateCopyWith<$Res> {
+  _$DayStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,21 +62,21 @@ class _$DaysStateCopyWithImpl<$Res, $Val extends DaysState>
 }
 
 /// @nodoc
-abstract class _$$_DaysStateCopyWith<$Res> implements $DaysStateCopyWith<$Res> {
-  factory _$$_DaysStateCopyWith(
-          _$_DaysState value, $Res Function(_$_DaysState) then) =
-      __$$_DaysStateCopyWithImpl<$Res>;
+abstract class _$$_DayStateCopyWith<$Res> implements $DayStateCopyWith<$Res> {
+  factory _$$_DayStateCopyWith(
+          _$_DayState value, $Res Function(_$_DayState) then) =
+      __$$_DayStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<int, String?> visibleDayGrid, DateTime visibleDate});
 }
 
 /// @nodoc
-class __$$_DaysStateCopyWithImpl<$Res>
-    extends _$DaysStateCopyWithImpl<$Res, _$_DaysState>
-    implements _$$_DaysStateCopyWith<$Res> {
-  __$$_DaysStateCopyWithImpl(
-      _$_DaysState _value, $Res Function(_$_DaysState) _then)
+class __$$_DayStateCopyWithImpl<$Res>
+    extends _$DayStateCopyWithImpl<$Res, _$_DayState>
+    implements _$$_DayStateCopyWith<$Res> {
+  __$$_DayStateCopyWithImpl(
+      _$_DayState _value, $Res Function(_$_DayState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_DaysStateCopyWithImpl<$Res>
     Object? visibleDayGrid = null,
     Object? visibleDate = null,
   }) {
-    return _then(_$_DaysState(
+    return _then(_$_DayState(
       visibleDayGrid: null == visibleDayGrid
           ? _value._visibleDayGrid
           : visibleDayGrid // ignore: cast_nullable_to_non_nullable
@@ -100,8 +100,8 @@ class __$$_DaysStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DaysState implements _DaysState {
-  _$_DaysState(
+class _$_DayState implements _DayState {
+  _$_DayState(
       {required final Map<int, String?> visibleDayGrid,
       required this.visibleDate})
       : _visibleDayGrid = visibleDayGrid;
@@ -119,14 +119,14 @@ class _$_DaysState implements _DaysState {
 
   @override
   String toString() {
-    return 'DaysState(visibleDayGrid: $visibleDayGrid, visibleDate: $visibleDate)';
+    return 'DayState(visibleDayGrid: $visibleDayGrid, visibleDate: $visibleDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DaysState &&
+            other is _$_DayState &&
             const DeepCollectionEquality()
                 .equals(other._visibleDayGrid, _visibleDayGrid) &&
             (identical(other.visibleDate, visibleDate) ||
@@ -140,14 +140,14 @@ class _$_DaysState implements _DaysState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DaysStateCopyWith<_$_DaysState> get copyWith =>
-      __$$_DaysStateCopyWithImpl<_$_DaysState>(this, _$identity);
+  _$$_DayStateCopyWith<_$_DayState> get copyWith =>
+      __$$_DayStateCopyWithImpl<_$_DayState>(this, _$identity);
 }
 
-abstract class _DaysState implements DaysState {
-  factory _DaysState(
+abstract class _DayState implements DayState {
+  factory _DayState(
       {required final Map<int, String?> visibleDayGrid,
-      required final DateTime visibleDate}) = _$_DaysState;
+      required final DateTime visibleDate}) = _$_DayState;
 
   @override
   Map<int, String?> get visibleDayGrid;
@@ -155,6 +155,6 @@ abstract class _DaysState implements DaysState {
   DateTime get visibleDate;
   @override
   @JsonKey(ignore: true)
-  _$$_DaysStateCopyWith<_$_DaysState> get copyWith =>
+  _$$_DayStateCopyWith<_$_DayState> get copyWith =>
       throw _privateConstructorUsedError;
 }

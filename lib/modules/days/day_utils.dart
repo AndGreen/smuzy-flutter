@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:collection/collection.dart';
+import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/days/day_constants.dart';
 
 BlockId getBlockId(DateTime day, int offset) {
-  DateTime today = DateTime(day.year, day.month, day.day);
-  int timestamp = today.toUtc().millisecondsSinceEpoch;
+  int timestamp = day.startOfDay.toUtc().millisecondsSinceEpoch;
   int blocks = (timestamp / 1000 / 1200).floor();
   int id = blocks + offset;
   return id;

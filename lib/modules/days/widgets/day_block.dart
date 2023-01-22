@@ -33,17 +33,13 @@ class DayBlock extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final daysState = ref.watch(daysProvider);
+    final daysState = ref.watch(dayProvider);
     final routinesState = ref.watch(routinesProvider);
 
     BlockId blockId = getBlockId(daysState.visibleDate, row * 9 + col);
-    print(getDayBlockRange(daysState.visibleDate));
-    print('$row $col $blockId');
-
     RoutineId? routineId = daysState.visibleDayGrid[blockId];
 
     final blockColor = routinesState.routines[routineId]?.color;
-
     final activeColor =
         routinesState.routines[routinesState.activeIdRoutine]?.color;
 
@@ -73,7 +69,7 @@ class DayBlock extends HookConsumerWidget {
                 splashColor: activeColor ?? AppColors.grayBg,
                 onTap: () {
                   ref
-                      .read(daysProvider.notifier)
+                      .read(dayProvider.notifier)
                       .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
                 },
               ),

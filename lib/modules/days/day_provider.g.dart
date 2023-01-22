@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$DaysHash() => r'371d9fc68347e561610608581a342edfc19b241c';
+String _$DayHash() => r'35e724a48325f3893631ed03c9f81f349a130d44';
 
-/// See also [Days].
-final daysProvider = AutoDisposeNotifierProvider<Days, DaysState>(
-  Days.new,
-  name: r'daysProvider',
+/// See also [Day].
+final dayProvider = AutoDisposeNotifierProvider<Day, DayState>(
+  Day.new,
+  name: r'dayProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$DaysHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$DayHash,
 );
-typedef DaysRef = AutoDisposeNotifierProviderRef<DaysState>;
+typedef DayRef = AutoDisposeNotifierProviderRef<DayState>;
 
-abstract class _$Days extends AutoDisposeNotifier<DaysState> {
+abstract class _$Day extends AutoDisposeNotifier<DayState> {
   @override
-  DaysState build();
+  DayState build();
 }
