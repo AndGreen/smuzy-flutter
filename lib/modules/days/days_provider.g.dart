@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$DaysHash() => r'c4d335aafbc7d3f22c9d349ad0af46aa4b5a875c';
+String _$DaysHash() => r'e3e9581609d1c0e4756ccb6ebf109a9d35cb6ae9';
 
 /// See also [Days].
 final daysProvider = AutoDisposeNotifierProvider<Days, DaysState>(

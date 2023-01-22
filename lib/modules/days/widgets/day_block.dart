@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/modules/days/days_provider.dart';
+import 'package:smuzy_flutter/modules/days/days_utils.dart';
 import 'package:smuzy_flutter/modules/routines/routines_provider.dart';
-import 'package:collection/collection.dart'; // You have to add this manually, for some reason it cannot be added automatically
 
 class DayBlock extends HookConsumerWidget {
   const DayBlock({
@@ -35,25 +36,13 @@ class DayBlock extends HookConsumerWidget {
     final daysState = ref.watch(daysProvider);
     final routinesState = ref.watch(routinesProvider);
 
-    BlockId getBlockId(DateTime day, int offset) {
-      DateTime today = DateTime(day.year, day.month, day.day);
-      int timestamp = today.toUtc().millisecondsSinceEpoch;
-      int blocks = (timestamp / 1000 / 1200).floor();
-      int id = blocks + offset;
-      return id;
-    }
-
     BlockId blockId = getBlockId(daysState.visibleDate, row * 9 + col);
+    RoutineId? routineId = daysState.visibleDayGrid[blockId];
 
-    final blockColor = routinesState.routines
-        .firstWhereOrNull(
-            (element) => element.id == daysState.visibleDayGrid[blockId])
-        ?.color;
+    final blockColor = routinesState.routines[routineId]?.color;
 
-    final activeColor = routinesState.routines
-        .firstWhereOrNull(
-            (element) => element.id == routinesState.activeIdRoutine)
-        ?.color;
+    final activeColor =
+        routinesState.routines[routinesState.activeIdRoutine]?.color;
 
     double rightBorderSide = getRightBorderSize(col);
     double bottomBorderSide = row != 7 ? 1 : 0;
@@ -61,34 +50,32 @@ class DayBlock extends HookConsumerWidget {
     double blockWidth = blockSize - rightBorderSide;
     double blockHeight = blockSize - bottomBorderSide;
 
-    return Stack(children: [
-      Container(
-          decoration: BoxDecoration(
-              border: Border(
-                  bottom: bottomBorderSide > 0
-                      ? const BorderSide()
-                      : BorderSide.none,
-                  right: BorderSide(width: getRightBorderSize(col)))),
-          child: SizedBox(
-            width: blockWidth,
-            height: blockHeight,
-            child: Container(color: blockColor),
-          )),
-      Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTapUp: (_) {
-            HapticFeedback.lightImpact();
-          },
-          splashColor: activeColor ?? AppColors.grayBg,
-          onTap: () {
-            ref
-                .read(daysProvider.notifier)
-                .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
-          },
-          child: SizedBox(width: blockSize - 1, height: blockSize),
-        ),
-      ),
-    ]);
+    return Container(
+        decoration: BoxDecoration(
+            border: Border(
+                bottom:
+                    bottomBorderSide > 0 ? const BorderSide() : BorderSide.none,
+                right: BorderSide(width: rightBorderSide))),
+        child: SizedBox(
+          width: blockWidth,
+          height: blockHeight,
+          child: Stack(children: [
+            Container(color: blockColor),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTapUp: (_) {
+                  HapticFeedback.lightImpact();
+                },
+                splashColor: activeColor ?? AppColors.grayBg,
+                onTap: () {
+                  ref
+                      .read(daysProvider.notifier)
+                      .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
+                },
+              ),
+            )
+          ]),
+        ));
   }
 }

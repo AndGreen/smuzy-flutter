@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:functional_widget_annotation/functional_widget_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/modules/app/router.dart';
 
-part 'app.g.dart';
+class App extends StatefulWidget {
+  const App({super.key});
 
-@swidget
-Widget app() {
-  return ProviderScope(
-      child: MaterialApp.router(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData.dark().copyWith(
-        appBarTheme: const AppBarTheme(color: AppColors.grayDark, elevation: 1),
-        scaffoldBackgroundColor: Colors.black),
-    routerConfig: router,
-  ));
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  void dispose() {
+    Hive.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ProviderScope(
+        child: MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+          appBarTheme:
+              const AppBarTheme(color: AppColors.grayDark, elevation: 1),
+          scaffoldBackgroundColor: Colors.black),
+      routerConfig: router,
+    ));
+  }
 }

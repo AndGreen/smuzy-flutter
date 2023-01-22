@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RoutinesState {
   String? get activeIdRoutine => throw _privateConstructorUsedError;
-  List<Routine> get routines => throw _privateConstructorUsedError;
+  Map<String, Routine> get routines => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RoutinesStateCopyWith<RoutinesState> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $RoutinesStateCopyWith<$Res> {
           RoutinesState value, $Res Function(RoutinesState) then) =
       _$RoutinesStateCopyWithImpl<$Res, RoutinesState>;
   @useResult
-  $Res call({String? activeIdRoutine, List<Routine> routines});
+  $Res call({String? activeIdRoutine, Map<String, Routine> routines});
 }
 
 /// @nodoc
@@ -57,7 +57,7 @@ class _$RoutinesStateCopyWithImpl<$Res, $Val extends RoutinesState>
       routines: null == routines
           ? _value.routines
           : routines // ignore: cast_nullable_to_non_nullable
-              as List<Routine>,
+              as Map<String, Routine>,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_RoutinesStateCopyWith<$Res>
       __$$_RoutinesStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? activeIdRoutine, List<Routine> routines});
+  $Res call({String? activeIdRoutine, Map<String, Routine> routines});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class __$$_RoutinesStateCopyWithImpl<$Res>
       routines: null == routines
           ? _value._routines
           : routines // ignore: cast_nullable_to_non_nullable
-              as List<Routine>,
+              as Map<String, Routine>,
     ));
   }
 }
@@ -104,17 +104,17 @@ class __$$_RoutinesStateCopyWithImpl<$Res>
 
 class _$_RoutinesState implements _RoutinesState {
   _$_RoutinesState(
-      {this.activeIdRoutine, required final List<Routine> routines})
+      {this.activeIdRoutine, required final Map<String, Routine> routines})
       : _routines = routines;
 
   @override
   final String? activeIdRoutine;
-  final List<Routine> _routines;
+  final Map<String, Routine> _routines;
   @override
-  List<Routine> get routines {
-    if (_routines is EqualUnmodifiableListView) return _routines;
+  Map<String, Routine> get routines {
+    if (_routines is EqualUnmodifiableMapView) return _routines;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_routines);
+    return EqualUnmodifiableMapView(_routines);
   }
 
   @override
@@ -146,12 +146,12 @@ class _$_RoutinesState implements _RoutinesState {
 abstract class _RoutinesState implements RoutinesState {
   factory _RoutinesState(
       {final String? activeIdRoutine,
-      required final List<Routine> routines}) = _$_RoutinesState;
+      required final Map<String, Routine> routines}) = _$_RoutinesState;
 
   @override
   String? get activeIdRoutine;
   @override
-  List<Routine> get routines;
+  Map<String, Routine> get routines;
   @override
   @JsonKey(ignore: true)
   _$$_RoutinesStateCopyWith<_$_RoutinesState> get copyWith =>

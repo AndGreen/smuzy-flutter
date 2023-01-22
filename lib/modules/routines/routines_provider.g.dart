@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$RoutinesHash() => r'bca73c060ff8e0ebdda29eb3cb1d8fc7b9f09f30';
+String _$RoutinesHash() => r'5e9065f946ff46a33189f78d63fc62c69c2f2879';
 
 /// See also [Routines].
 final routinesProvider = AutoDisposeNotifierProvider<Routines, RoutinesState>(
