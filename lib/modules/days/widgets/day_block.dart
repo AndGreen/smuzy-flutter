@@ -14,11 +14,13 @@ class DayBlock extends HookConsumerWidget {
     required this.blockSize,
     required this.row,
     required this.col,
+    required this.nowBlockId,
   });
 
   final double blockSize;
   final int col;
   final int row;
+  final int nowBlockId;
 
   double getRightBorderSize(int index) {
     // TODO: pattern matching:
@@ -58,25 +60,37 @@ class DayBlock extends HookConsumerWidget {
                     bottomBorderSide > 0 ? const BorderSide() : BorderSide.none,
                 right: BorderSide(width: rightBorderSide))),
         child: SizedBox(
-          width: blockWidth,
-          height: blockHeight,
-          child: Stack(children: [
-            Container(color: blockColor),
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTapUp: (_) {
-                  HapticFeedback.lightImpact();
-                },
-                splashColor: activeColor ?? AppColors.grayBg,
-                onTap: () {
-                  ref
-                      .read(dayProvider.notifier)
-                      .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
-                },
-              ),
-            ),
-          ]),
-        ));
+            width: blockWidth,
+            height: blockHeight,
+            child: Stack(children: [
+              Container(
+                  decoration: BoxDecoration(
+                      color: blockColor,
+                      gradient: blockId > nowBlockId && blockColor != null
+                          ? LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: const Alignment(-0.8, -0.8),
+                              stops: const [0.0, 0.8, 0, 0],
+                              colors: [
+                                blockColor,
+                                blockColor,
+                                Colors.black,
+                                Colors.black,
+                              ],
+                              tileMode: TileMode.repeated,
+                            )
+                          : null)),
+              Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                      onTapUp: (_) {
+                        HapticFeedback.lightImpact();
+                      },
+                      splashColor: activeColor ?? AppColors.grayBg,
+                      onTap: () {
+                        ref.read(dayProvider.notifier).colorizeDayBlock(
+                            blockId, routinesState.activeIdRoutine);
+                      }))
+            ])));
   }
 }
