@@ -37,7 +37,7 @@ class RoutineButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: _getButtonColor(isActive),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -52,6 +52,9 @@ class RoutineButton extends StatelessWidget {
           Text(
             title,
             style: AppFonts.text.copyWith(
+              wordSpacing: 0,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'Roboto',
               color: isActive ? AppColors.grayDark : AppColors.white,
             ),
           )

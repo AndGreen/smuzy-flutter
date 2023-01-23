@@ -76,8 +76,8 @@ class DayBlock extends HookConsumerWidget {
                         colors: [
                           blockColor,
                           blockColor,
-                          Colors.black,
-                          Colors.black,
+                          AppColors.grayBg,
+                          AppColors.grayBg,
                         ],
                         tileMode: TileMode.repeated,
                       )
