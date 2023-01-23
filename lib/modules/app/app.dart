@@ -1,7 +1,8 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/modules/app/router.dart';
 
 class App extends StatefulWidget {
@@ -23,11 +24,13 @@ class _AppState extends State<App> {
     return ProviderScope(
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark().copyWith(
-          appBarTheme:
-              const AppBarTheme(color: AppColors.grayDark, elevation: 1),
-          scaffoldBackgroundColor: Colors.black,
+        darkTheme: FlexThemeData.dark(
+          scheme: FlexScheme.deepBlue,
+          useMaterial3: true,
+          fontFamily: 'Roboto',
+          background: CupertinoColors.darkBackgroundGray,
         ),
+        themeMode: ThemeMode.dark,
         routerConfig: router,
       ),
     );
