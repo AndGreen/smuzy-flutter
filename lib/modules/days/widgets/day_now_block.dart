@@ -27,7 +27,16 @@ class DayNowBlock extends HookWidget {
         child: SizedBox(
           width: blockSize,
           height: blockSize,
-        ).decorated(border: Border.all(width: 3, color: AppColors.active)),
+        ).decorated(
+          boxShadow: [
+            const BoxShadow(
+              color: Colors.black,
+              blurRadius: 5,
+              blurStyle: BlurStyle.outer,
+            ),
+          ],
+          border: Border.all(width: 3, color: AppColors.active),
+        ),
       ),
     );
   }
