@@ -28,7 +28,8 @@ class Routines extends _$Routines {
 
   toggleActiveRoutine(Routine newRoutine) {
     state = state.copyWith(
-        activeIdRoutine:
-            state.activeIdRoutine != newRoutine.id ? newRoutine.id : null);
+      activeIdRoutine:
+          state.activeIdRoutine != newRoutine.id ? newRoutine.id : null,
+    );
   }
 }

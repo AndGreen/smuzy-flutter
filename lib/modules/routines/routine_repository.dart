@@ -14,9 +14,10 @@ class RoutinesRepository {
     Map<RoutineId, Routine> result = {};
     Hive.box<RoutineHive>(routinesBoxTitle).values.forEach((routine) {
       result[routine.id] = Routine(
-          id: routine.id,
-          color: Color(routine.colorValue),
-          title: routine.title);
+        id: routine.id,
+        color: Color(routine.colorValue),
+        title: routine.title,
+      );
     });
     return result;
   }
@@ -24,11 +25,13 @@ class RoutinesRepository {
   static void saveRoutines(Map<RoutineId, Routine> routines) {
     routines.forEach((routineId, routine) {
       Hive.box<RoutineHive>(routinesBoxTitle).put(
-          routineId,
-          RoutineHive(
-              id: routineId,
-              colorValue: routine.color.value,
-              title: routine.title));
+        routineId,
+        RoutineHive(
+          id: routineId,
+          colorValue: routine.color.value,
+          title: routine.title,
+        ),
+      );
     });
   }
 }

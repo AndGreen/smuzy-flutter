@@ -38,23 +38,28 @@ class Routine {
 
 var defaultRoutines = [
   Routine(
-      id: const Uuid().v4(),
-      title: 'sleep',
-      color: AppColors.defaultRoutinesColors['teal']!),
+    id: const Uuid().v4(),
+    title: 'sleep',
+    color: AppColors.defaultRoutinesColors['teal']!,
+  ),
   Routine(
-      id: const Uuid().v4(),
-      title: 'sport',
-      color: AppColors.defaultRoutinesColors['orange']!),
+    id: const Uuid().v4(),
+    title: 'sport',
+    color: AppColors.defaultRoutinesColors['orange']!,
+  ),
   Routine(
-      id: const Uuid().v4(),
-      title: 'eat',
-      color: AppColors.defaultRoutinesColors['lightGreen']!),
+    id: const Uuid().v4(),
+    title: 'eat',
+    color: AppColors.defaultRoutinesColors['lightGreen']!,
+  ),
   Routine(
-      id: const Uuid().v4(),
-      title: 'work',
-      color: AppColors.defaultRoutinesColors['blueGray']!),
+    id: const Uuid().v4(),
+    title: 'work',
+    color: AppColors.defaultRoutinesColors['blueGray']!,
+  ),
   Routine(
-      id: const Uuid().v4(),
-      title: 'media',
-      color: AppColors.defaultRoutinesColors['black']!)
+    id: const Uuid().v4(),
+    title: 'media',
+    color: AppColors.defaultRoutinesColors['black']!,
+  )
 ];

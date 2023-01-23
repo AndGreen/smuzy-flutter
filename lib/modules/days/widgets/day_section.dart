@@ -16,11 +16,13 @@ class DaySection extends HookConsumerWidget {
     return SwipeGestureDetector(
       onSwipeLeftEnd: () {
         ref.read(dayProvider.notifier).changeVisibleDate(
-            dayState.visibleDate.subtract(const Duration(days: 1)));
+              dayState.visibleDate.subtract(const Duration(days: 1)),
+            );
       },
       onSwipeRightEnd: () {
         ref.read(dayProvider.notifier).changeVisibleDate(
-            dayState.visibleDate.add(const Duration(days: 1)));
+              dayState.visibleDate.add(const Duration(days: 1)),
+            );
       },
       child: Container(
         color: AppColors.grayBg,

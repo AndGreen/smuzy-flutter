@@ -21,52 +21,64 @@ class DayGrid extends HookConsumerWidget {
     var nowBlockId = useState(getBlockId(DateTime.now()));
 
     // TODO: make cusom hook or use global state
-    useEffect(() {
-      final time = Stream.periodic(const Duration(seconds: 1));
-      var listener = time.listen((_) {
-        final currentBlockId = getBlockId(DateTime.now());
-        if (currentBlockId != nowBlockId.value) {
-          nowBlockId.value = currentBlockId;
-        }
-      });
-      return () {
-        listener.cancel();
-      };
-    }, []);
+    useEffect(
+      () {
+        final time = Stream.periodic(const Duration(seconds: 1));
+        var listener = time.listen((_) {
+          final currentBlockId = getBlockId(DateTime.now());
+          if (currentBlockId != nowBlockId.value) {
+            nowBlockId.value = currentBlockId;
+          }
+        });
+        return () {
+          listener.cancel();
+        };
+      },
+      [],
+    );
 
     var nowBlockIndex = visibleBlockRange.indexOf(nowBlockId.value);
 
-    return LayoutBuilder(builder: (context, constrains) {
-      var blockSize = (constrains.maxWidth - 2) / 9;
+    return LayoutBuilder(
+      builder: (context, constrains) {
+        var blockSize = (constrains.maxWidth - 2) / 9;
 
-      return Stack(children: [
-        Container(
-            height: blockSize * 8 + 2,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1,
+        return Stack(
+          children: [
+            Container(
+              height: blockSize * 8 + 2,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1,
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Column(
+              child: Column(
                 children: List.generate(
-                    rowCount,
-                    (row) => Row(
-                        children: List.generate(
-                            colCount,
-                            (col) => DayBlock(
-                                  col: col,
-                                  row: row,
-                                  nowBlockId: nowBlockId.value,
-                                  blockSize: blockSize,
-                                )))))),
-        if (visibleDate.isSameDay(DateTime.now()))
-          DayNowBlock(
-            blockSize: blockSize,
-            nowBlockIndex: nowBlockIndex,
-          )
-      ]);
-    });
+                  rowCount,
+                  (row) => Row(
+                    children: List.generate(
+                      colCount,
+                      (col) => DayBlock(
+                        col: col,
+                        row: row,
+                        nowBlockId: nowBlockId.value,
+                        blockSize: blockSize,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            if (visibleDate.isSameDay(DateTime.now()))
+              DayNowBlock(
+                blockSize: blockSize,
+                nowBlockIndex: nowBlockIndex,
+              )
+          ],
+        );
+      },
+    );
   }
 }

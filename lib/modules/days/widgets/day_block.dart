@@ -54,43 +54,54 @@ class DayBlock extends HookConsumerWidget {
     double blockHeight = blockSize - bottomBorderSide;
 
     return Container(
-        decoration: BoxDecoration(
-            border: Border(
-                bottom:
-                    bottomBorderSide > 0 ? const BorderSide() : BorderSide.none,
-                right: BorderSide(width: rightBorderSide))),
-        child: SizedBox(
-            width: blockWidth,
-            height: blockHeight,
-            child: Stack(children: [
-              Container(
-                  decoration: BoxDecoration(
-                      color: blockColor,
-                      gradient: blockId > nowBlockId && blockColor != null
-                          ? LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: const Alignment(-0.8, -0.8),
-                              stops: const [0.0, 0.8, 0, 0],
-                              colors: [
-                                blockColor,
-                                blockColor,
-                                Colors.black,
-                                Colors.black,
-                              ],
-                              tileMode: TileMode.repeated,
-                            )
-                          : null)),
-              Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                      onTapUp: (_) {
-                        HapticFeedback.lightImpact();
-                      },
-                      splashColor: activeColor ?? AppColors.grayBg,
-                      onTap: () {
-                        ref.read(dayProvider.notifier).colorizeDayBlock(
-                            blockId, routinesState.activeIdRoutine);
-                      }))
-            ])));
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: bottomBorderSide > 0 ? const BorderSide() : BorderSide.none,
+          right: BorderSide(width: rightBorderSide),
+        ),
+      ),
+      child: SizedBox(
+        width: blockWidth,
+        height: blockHeight,
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: blockColor,
+                gradient: blockId > nowBlockId && blockColor != null
+                    ? LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: const Alignment(-0.8, -0.8),
+                        stops: const [0.0, 0.8, 0, 0],
+                        colors: [
+                          blockColor,
+                          blockColor,
+                          Colors.black,
+                          Colors.black,
+                        ],
+                        tileMode: TileMode.repeated,
+                      )
+                    : null,
+              ),
+            ),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTapUp: (_) {
+                  HapticFeedback.lightImpact();
+                },
+                splashColor: activeColor ?? AppColors.grayBg,
+                onTap: () {
+                  ref.read(dayProvider.notifier).colorizeDayBlock(
+                        blockId,
+                        routinesState.activeIdRoutine,
+                      );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

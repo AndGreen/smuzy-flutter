@@ -17,14 +17,15 @@ Widget routinesSection(WidgetRef ref) {
     children: [
       ...routinesState.routines.values.toList().map(
             (routine) => RoutineButton(
-                color: routine.color,
-                title: routine.title,
-                isActive: routine.id == routinesState.activeIdRoutine,
-                onTap: () {
-                  ref
-                      .read(routinesProvider.notifier)
-                      .toggleActiveRoutine(routine);
-                }),
+              color: routine.color,
+              title: routine.title,
+              isActive: routine.id == routinesState.activeIdRoutine,
+              onTap: () {
+                ref
+                    .read(routinesProvider.notifier)
+                    .toggleActiveRoutine(routine);
+              },
+            ),
           )
     ],
   ).padding(vertical: 8, horizontal: 8);

@@ -29,12 +29,15 @@ class Day extends _$Day {
 
   colorizeDayBlock(BlockId blockId, RoutineId? routineId) {
     state = state.copyWith(
-        visibleDayGrid: {...state.visibleDayGrid, blockId: routineId});
+      visibleDayGrid: {...state.visibleDayGrid, blockId: routineId},
+    );
     DaysRepository.saveBlock(blockId, routineId);
   }
 
   changeVisibleDate(DateTime newDate) {
     state = state.copyWith(
-        visibleDate: newDate, visibleDayGrid: _getDayGrid(newDate));
+      visibleDate: newDate,
+      visibleDayGrid: _getDayGrid(newDate),
+    );
   }
 }

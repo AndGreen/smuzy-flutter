@@ -35,26 +35,28 @@ class RoutineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: _getButtonColor(isActive),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _getButtonColor(isActive),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
         ),
-        onPressed: () {
-          onTap();
-        },
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _colorCircle(color),
-            Text(
-              title,
-              style: AppFonts.text.copyWith(
-                  color: isActive ? AppColors.grayDark : AppColors.white),
-            )
-          ],
-        ));
+      ),
+      onPressed: () {
+        onTap();
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _colorCircle(color),
+          Text(
+            title,
+            style: AppFonts.text.copyWith(
+              color: isActive ? AppColors.grayDark : AppColors.white,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

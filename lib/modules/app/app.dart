@@ -21,13 +21,15 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-        child: MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
           appBarTheme:
               const AppBarTheme(color: AppColors.grayDark, elevation: 1),
-          scaffoldBackgroundColor: Colors.black),
-      routerConfig: router,
-    ));
+          scaffoldBackgroundColor: Colors.black,
+        ),
+        routerConfig: router,
+      ),
+    );
   }
 }
