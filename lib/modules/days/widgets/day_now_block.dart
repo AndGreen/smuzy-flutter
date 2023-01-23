@@ -35,7 +35,8 @@ class DayNowBlock extends HookWidget {
     var row = (nowBlockIndex / colCount).floor();
     var col = nowBlockIndex % colCount;
 
-    return Positioned(
+    return AnimatedPositioned(
+        duration: const Duration(milliseconds: 500),
         top: blockSize * row,
         left: blockSize * col,
         child: IgnorePointer(
