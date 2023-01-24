@@ -35,12 +35,23 @@ class Routines extends _$Routines {
         return MapEntry(routine.id, routine);
       }),
     );
+    RoutinesRepository.saveRoutines(state.routines);
   }
 
   addNewRoutine(Routine newRoutine) {
     state = state.copyWith(
       routines: {...state.routines, newRoutine.id: newRoutine},
     );
+    RoutinesRepository.saveRoutines(state.routines);
+  }
+
+  deleteRoutine({required RoutineId routineId}) {
+    state = state.copyWith(
+      routines: Map.fromEntries(
+        state.routines.entries.where((entry) => entry.key != routineId),
+      ),
+    );
+    RoutinesRepository.saveRoutines(state.routines);
   }
 
   toggleActiveRoutine(Routine newRoutine) {

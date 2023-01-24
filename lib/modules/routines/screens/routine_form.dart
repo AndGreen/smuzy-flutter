@@ -18,13 +18,17 @@ class RoutineForm extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var text = useState<String?>(null);
     var isNewRoutine = routine == null;
 
     var routines = ref.watch(routinesProvider).routines;
-    var addNewRoutine = ref.read(routinesProvider.notifier).addNewRoutine;
-    var usedColors = routines.values.map((routine) => routine.color).toSet();
-    var activeColor = useState<Color?>(null);
+    var routinesEdit = ref.read(routinesProvider.notifier);
+    var usedColors = routines.values
+        .map((routine) => routine.color)
+        .where((color) => color != routine?.color)
+        .toSet();
+
+    var text = useState<String?>(routine?.title);
+    var activeColor = useState<Color?>(routine?.color);
 
     var isFormValid = text.value != null && activeColor.value != null;
 
@@ -39,13 +43,21 @@ class RoutineForm extends HookConsumerWidget {
           TextButton(
             onPressed: isFormValid
                 ? () {
-                    addNewRoutine(
-                      Routine(
-                        id: const Uuid().v4(),
-                        color: activeColor.value!,
-                        title: text.value!,
-                      ),
-                    );
+                    isNewRoutine
+                        ? routinesEdit.addNewRoutine(
+                            Routine(
+                              id: const Uuid().v4(),
+                              color: activeColor.value!,
+                              title: text.value!,
+                            ),
+                          )
+                        : routinesEdit.updateRoutine(
+                            Routine(
+                              id: routine!.id,
+                              color: activeColor.value!,
+                              title: text.value!,
+                            ),
+                          );
                     Modal.close(context);
                   }
                 : null,
@@ -71,6 +83,7 @@ class RoutineForm extends HookConsumerWidget {
               CupertinoTextInput(
                 label: 'Title',
                 autofocus: true,
+                initialValue: text.value,
                 onChanged: (value) {
                   text.value = value;
                 },
@@ -87,7 +100,8 @@ class RoutineForm extends HookConsumerWidget {
           if (!isNewRoutine)
             ElevatedButton(
               onPressed: () {
-                // onDaySelect(DateTime.now());
+                routinesEdit.deleteRoutine(routineId: routine!.id);
+                Modal.close(context);
               },
               child: const Text('Delete Routine').padding(vertical: 15),
             ).padding(vertical: 10)

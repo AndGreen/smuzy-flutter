@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
 
 class CupertinoTextInput extends StatelessWidget {
   const CupertinoTextInput({
@@ -8,6 +9,7 @@ class CupertinoTextInput extends StatelessWidget {
     required this.autofocus,
     required this.onChanged,
     this.controller,
+    this.initialValue,
     this.validator,
     this.placeholder,
   }) : super(key: key);
@@ -18,6 +20,7 @@ class CupertinoTextInput extends StatelessWidget {
   final TextEditingController? controller;
   final void Function(String? value) onChanged;
   final String? Function(String? value)? validator;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +32,11 @@ class CupertinoTextInput extends StatelessWidget {
         autofocus: autofocus,
         controller: controller,
         validator: validator,
+        initialValue: initialValue,
         placeholderStyle: TextStyle(color: Theme.of(context).focusColor),
         placeholder: placeholder,
         onChanged: onChanged,
-        style: TextStyle(color: Theme.of(context).primaryColor),
+        style: const TextStyle(color: AppColors.active),
       ),
     );
   }

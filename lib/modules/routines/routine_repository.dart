@@ -23,6 +23,7 @@ class RoutinesRepository {
   }
 
   static void saveRoutines(Map<RoutineId, Routine> routines) {
+    Hive.box<RoutineHive>(routinesBoxTitle).clear();
     routines.forEach((routineId, routine) {
       Hive.box<RoutineHive>(routinesBoxTitle).put(
         routineId,
