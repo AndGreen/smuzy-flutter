@@ -1,9 +1,8 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/modules/app/router.dart';
+import 'package:smuzy_flutter/modules/app/navigation.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -21,17 +20,28 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    var defaultTransition = const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
+        TargetPlatform.android: ZoomPageTransitionsBuilder(),
+      },
+    );
+
     return ProviderScope(
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        darkTheme: FlexThemeData.dark(
+        theme: FlexThemeData.light(
+          pageTransitionsTheme: defaultTransition,
           scheme: FlexScheme.deepBlue,
           useMaterial3: true,
-          fontFamily: 'Roboto',
-          background: CupertinoColors.darkBackgroundGray,
         ),
-        themeMode: ThemeMode.dark,
-        routerConfig: router,
+        darkTheme: FlexThemeData.dark(
+          pageTransitionsTheme: defaultTransition,
+          scheme: FlexScheme.deepBlue,
+          useMaterial3: true,
+        ),
+        themeMode: ThemeMode.system,
+        routerConfig: Navigation.router,
       ),
     );
   }

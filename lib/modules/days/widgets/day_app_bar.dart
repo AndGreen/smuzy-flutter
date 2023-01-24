@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
 import 'package:smuzy_flutter/common/utils/dates.dart';
-import 'package:smuzy_flutter/common/utils/modal.dart';
+import 'package:smuzy_flutter/modules/app/navigation.dart';
 import 'package:smuzy_flutter/modules/calendar/calendar_modal.dart';
 import 'package:smuzy_flutter/modules/days/day_provider.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -24,7 +24,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
         children: [
           TextButton(
             onPressed: () {
-              Modal.open(
+              Navigation.openModal(
                 context: context,
                 child: CalendarModal(
                   visibleDay: visibleDay,
@@ -32,7 +32,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
                     ref
                         .read(dayProvider.notifier)
                         .changeVisibleDate(selectedDate);
-                    Modal.close(context);
+                    Navigation.closeModal(context);
                   },
                 ),
               );

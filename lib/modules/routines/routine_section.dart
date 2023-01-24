@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/common/utils/modal.dart';
+import 'package:smuzy_flutter/modules/app/navigation.dart';
 import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
 import 'package:smuzy_flutter/modules/routines/screens/routine_form.dart';
 import 'package:smuzy_flutter/modules/routines/widgets/add_routine_button.dart';
@@ -24,7 +24,7 @@ class RoutineSection extends HookConsumerWidget {
         ...routinesState.routines.values.toList().map(
               (routine) => GestureDetector(
                 onLongPress: () {
-                  Modal.open(
+                  Navigation.openModal(
                     context: context,
                     child: RoutineForm(
                       routine: routine,
@@ -45,7 +45,7 @@ class RoutineSection extends HookConsumerWidget {
             ),
         AddRoutineButton(
           onTap: () {
-            Modal.open(
+            Navigation.openModal(
               context: context,
               child: const RoutineForm(),
             );

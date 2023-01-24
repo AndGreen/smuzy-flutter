@@ -4,8 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/utils/modal.dart';
 import 'package:smuzy_flutter/common/widgets/textfiled.dart';
+import 'package:smuzy_flutter/modules/app/navigation.dart';
 import 'package:smuzy_flutter/modules/color/color_list.dart';
 import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -58,7 +58,7 @@ class RoutineForm extends HookConsumerWidget {
                               title: text.value!,
                             ),
                           );
-                    Modal.close(context);
+                    Navigation.closeModal(context);
                   }
                 : null,
             child: Center(
@@ -101,7 +101,7 @@ class RoutineForm extends HookConsumerWidget {
             ElevatedButton(
               onPressed: () {
                 routinesEdit.deleteRoutine(routineId: routine!.id);
-                Modal.close(context);
+                Navigation.closeModal(context);
               },
               child: const Text('Delete Routine').padding(vertical: 15),
             ).padding(vertical: 10)
