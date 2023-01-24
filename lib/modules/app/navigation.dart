@@ -6,6 +6,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smuzy_flutter/common/widgets/tab_navigation_scaffold.dart';
 import 'package:smuzy_flutter/modules/days/screens/day_screen.dart';
 import 'package:smuzy_flutter/modules/settings/settings_screen.dart';
+import 'package:another_flushbar/flushbar.dart';
 
 class Routes {
   final home = const Route(link: '/', screen: DayScreen());
@@ -68,6 +69,20 @@ class Navigation {
 
   static void closeModal(BuildContext context) {
     Navigator.of(context).pop();
+  }
+
+  static showNotification({
+    required BuildContext context,
+    required String message,
+    required bool isSuccess,
+  }) {
+    Flushbar(
+      flushbarPosition: FlushbarPosition.TOP,
+      message: message,
+      duration: const Duration(seconds: 2),
+      flushbarStyle: FlushbarStyle.GROUNDED,
+      backgroundColor: isSuccess ? Colors.green : Colors.red,
+    ).show(context);
   }
 }
 
