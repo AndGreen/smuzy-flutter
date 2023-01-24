@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/days/day_provider.dart';
 import 'package:smuzy_flutter/modules/days/day_utils.dart';
 import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
@@ -36,7 +37,8 @@ class DayBlock extends HookConsumerWidget {
     final daysState = ref.watch(dayProvider);
     final routinesState = ref.watch(routinesProvider);
 
-    BlockId blockId = getBlockId(daysState.visibleDate, row * 9 + col);
+    BlockId blockId =
+        getBlockId(daysState.visibleDate.startOfDay, row * 9 + col);
     RoutineId? routineId = daysState.visibleDayGrid[blockId];
 
     final blockColor = routinesState.routines[routineId]?.color;
@@ -73,7 +75,7 @@ class DayBlock extends HookConsumerWidget {
                       .colorizeDayBlock(blockId, routinesState.activeIdRoutine);
                 },
               ),
-            )
+            ),
           ]),
         ));
   }

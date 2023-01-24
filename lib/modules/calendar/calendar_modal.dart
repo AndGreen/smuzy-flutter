@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -16,7 +17,7 @@ class CalendarModal extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TableCalendar(
-            selectedDayPredicate: ((day) => isSameDay(visibleDay, day)),
+            selectedDayPredicate: ((day) => visibleDay.isSameDay(day)),
             onDaySelected: (selectedDay, focusedDay) {
               onDaySelect(selectedDay);
             },
