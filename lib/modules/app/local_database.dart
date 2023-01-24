@@ -6,7 +6,7 @@ import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
 class LocalDatabase {
   static init() async {
     await Hive.initFlutter();
-    Hive.registerAdapter(RoutineHiveAdapter());
+    Hive.registerAdapter(RoutineAdapter());
     await RoutinesRepository.init();
     await DaysRepository.init();
   }

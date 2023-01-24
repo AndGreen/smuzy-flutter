@@ -4,11 +4,9 @@ import 'package:smuzy_flutter/common/models/routine.dart';
 typedef HistoryDatabase = Box<String>;
 const daysBoxTitle = 'daysHistory';
 
-// TODO: use async provider?
 class DaysRepository {
   static init() async {
     await Hive.openBox<RoutineId>(daysBoxTitle);
-    // Hive.box<RoutineId>(daysBoxTitle).clear();
   }
 
   static Map<BlockId, RoutineId?> getDaySlice(List<BlockId> blockRange) {
@@ -19,6 +17,14 @@ class DaysRepository {
         result[blockId] = Hive.box<String>(daysBoxTitle).get(blockId);
       }
     }
+    return result;
+  }
+
+  static Map<BlockId, RoutineId?> getAllHistory() {
+    Map<BlockId, RoutineId?> result = {};
+
+    print(Hive.box<String>(daysBoxTitle).values.toList());
+
     return result;
   }
 

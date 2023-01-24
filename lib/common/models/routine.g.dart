@@ -6,31 +6,30 @@ part of 'routine.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class RoutineHiveAdapter extends TypeAdapter<RoutineHive> {
+class RoutineAdapter extends TypeAdapter<Routine> {
   @override
   final int typeId = 0;
 
   @override
-  RoutineHive read(BinaryReader reader) {
+  Routine read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return RoutineHive(
+    return Routine(
       id: fields[0] as String,
-      colorValue: fields[1] as int,
       title: fields[2] as String,
-    );
+    ).._color = fields[1] as int;
   }
 
   @override
-  void write(BinaryWriter writer, RoutineHive obj) {
+  void write(BinaryWriter writer, Routine obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.colorValue)
+      ..write(obj._color)
       ..writeByte(2)
       ..write(obj.title);
   }
@@ -41,7 +40,7 @@ class RoutineHiveAdapter extends TypeAdapter<RoutineHive> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RoutineHiveAdapter &&
+      other is RoutineAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

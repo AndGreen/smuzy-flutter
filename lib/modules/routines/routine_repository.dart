@@ -1,35 +1,30 @@
-import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smuzy_flutter/common/models/routine.dart';
 
-typedef RoutinesDatabase = Box<RoutineHive>;
+typedef RoutinesDatabase = Box<Routine>;
 const routinesBoxTitle = 'routines';
 
 class RoutinesRepository {
   static init() async {
-    await Hive.openBox<RoutineHive>(routinesBoxTitle);
+    await Hive.openBox<Routine>(routinesBoxTitle);
   }
 
   static Map<RoutineId, Routine> restoreRoutines() {
     Map<RoutineId, Routine> result = {};
-    Hive.box<RoutineHive>(routinesBoxTitle).values.forEach((routine) {
-      result[routine.id] = Routine(
-        id: routine.id,
-        color: Color(routine.colorValue),
-        title: routine.title,
-      );
+    Hive.box<Routine>(routinesBoxTitle).values.forEach((routine) {
+      result[routine.id] = routine;
     });
     return result;
   }
 
   static void saveRoutines(Map<RoutineId, Routine> routines) {
-    Hive.box<RoutineHive>(routinesBoxTitle).clear();
+    Hive.box<Routine>(routinesBoxTitle).clear();
     routines.forEach((routineId, routine) {
-      Hive.box<RoutineHive>(routinesBoxTitle).put(
+      Hive.box<Routine>(routinesBoxTitle).put(
         routineId,
-        RoutineHive(
+        Routine(
           id: routineId,
-          colorValue: routine.color.value,
+          color: routine.color,
           title: routine.title,
         ),
       );
