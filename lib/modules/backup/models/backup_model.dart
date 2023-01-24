@@ -3,7 +3,7 @@ import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 
 part 'backup_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BackupData {
   BackupData({
     required this.history,
@@ -11,7 +11,6 @@ class BackupData {
   });
 
   Map<BlockId, RoutineId?> history;
-  @JsonKey(name: 'routines')
   Map<RoutineId, Routine> routines;
 
   factory BackupData.fromJson(Map<String, dynamic> json) =>

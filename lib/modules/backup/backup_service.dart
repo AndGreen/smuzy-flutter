@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smuzy_flutter/modules/backup/backup_model.dart';
+import 'package:smuzy_flutter/modules/backup/models/backup_model.dart';
 import 'package:smuzy_flutter/modules/days/day_repository.dart';
 import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
 

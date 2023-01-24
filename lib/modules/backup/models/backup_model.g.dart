@@ -18,5 +18,5 @@ BackupData _$BackupDataFromJson(Map<String, dynamic> json) => BackupData(
 Map<String, dynamic> _$BackupDataToJson(BackupData instance) =>
     <String, dynamic>{
       'history': instance.history.map((k, e) => MapEntry(k.toString(), e)),
-      'routines': instance.routines,
+      'routines': instance.routines.map((k, e) => MapEntry(k, e.toJson())),
     };
