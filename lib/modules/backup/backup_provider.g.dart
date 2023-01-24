@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$BackupHash() => r'8aa949c78f7762bcedd46f9023723dddb67a1311';
+String _$BackupHash() => r'9dc126cd3b0b9455b0eb8c2364afa6360f13f269';
 
 /// See also [Backup].
-final backupProvider = AutoDisposeNotifierProvider<Backup, Backup>(
+final backupProvider = AutoDisposeNotifierProvider<Backup, int>(
   Backup.new,
   name: r'backupProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$BackupHash,
 );
-typedef BackupRef = AutoDisposeNotifierProviderRef<Backup>;
+typedef BackupRef = AutoDisposeNotifierProviderRef<int>;
 
-abstract class _$Backup extends AutoDisposeNotifier<Backup> {
+abstract class _$Backup extends AutoDisposeNotifier<int> {
   @override
-  Backup build();
+  int build();
 }

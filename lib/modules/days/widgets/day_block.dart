@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -43,9 +44,15 @@ class DayBlock extends HookConsumerWidget {
         getBlockId(daysState.visibleDate.startOfDay, row * 9 + col);
     RoutineId? routineId = daysState.visibleDayGrid[blockId];
 
-    final blockColor = routinesState.routines[routineId]?.color;
-    final activeColor =
-        routinesState.routines[routinesState.activeIdRoutine]?.color;
+    final blockColor = routinesState.routines
+        .firstWhereOrNull((element) => element.id == routineId)
+        ?.color;
+
+    final activeColor = routinesState.routines
+        .firstWhereOrNull(
+          (element) => element.id == routinesState.activeIdRoutine,
+        )
+        ?.color;
 
     double rightBorderSide = getRightBorderSize(col);
     double bottomBorderSide = row != 7 ? 1 : 0;
@@ -67,15 +74,15 @@ class DayBlock extends HookConsumerWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: blockColor,
-                gradient: blockId > nowBlockId && blockColor != null
+                color: blockColor ?? Colors.transparent,
+                gradient: blockId > nowBlockId
                     ? LinearGradient(
                         begin: Alignment.topLeft,
                         end: const Alignment(-0.8, -0.8),
                         stops: const [0.0, 0.8, 0, 0],
                         colors: [
-                          blockColor,
-                          blockColor,
+                          blockColor ?? AppColors.grayBg,
+                          blockColor ?? AppColors.grayBg,
                           AppColors.grayBg,
                           AppColors.grayBg,
                         ],
@@ -90,7 +97,7 @@ class DayBlock extends HookConsumerWidget {
                 onTapUp: (_) {
                   HapticFeedback.lightImpact();
                 },
-                splashColor: activeColor ?? AppColors.grayBg,
+                splashColor: activeColor,
                 onTap: () {
                   ref.read(dayProvider.notifier).colorizeDayBlock(
                         blockId,

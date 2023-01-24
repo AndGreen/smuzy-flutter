@@ -27,8 +27,8 @@ class DaysRepository {
     return result;
   }
 
-  static restoreFullHistory(Map<BlockId, RoutineId?> history) {
-    Hive.box<RoutineId>(daysBox).clear();
+  static restoreFullHistory(Map<BlockId, RoutineId?> history) async {
+    await Hive.box<RoutineId>(daysBox).clear();
     history.forEach((blockId, routineId) {
       saveBlock(blockId, routineId);
     });

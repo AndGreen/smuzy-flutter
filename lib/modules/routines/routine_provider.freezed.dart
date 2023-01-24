@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$RoutinesState {
+mixin _$RoutineState {
   String? get activeIdRoutine => throw _privateConstructorUsedError;
-  Map<String, Routine> get routines => throw _privateConstructorUsedError;
+  List<Routine> get routines => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RoutinesStateCopyWith<RoutinesState> get copyWith =>
+  $RoutineStateCopyWith<RoutineState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RoutinesStateCopyWith<$Res> {
-  factory $RoutinesStateCopyWith(
-          RoutinesState value, $Res Function(RoutinesState) then) =
-      _$RoutinesStateCopyWithImpl<$Res, RoutinesState>;
+abstract class $RoutineStateCopyWith<$Res> {
+  factory $RoutineStateCopyWith(
+          RoutineState value, $Res Function(RoutineState) then) =
+      _$RoutineStateCopyWithImpl<$Res, RoutineState>;
   @useResult
-  $Res call({String? activeIdRoutine, Map<String, Routine> routines});
+  $Res call({String? activeIdRoutine, List<Routine> routines});
 }
 
 /// @nodoc
-class _$RoutinesStateCopyWithImpl<$Res, $Val extends RoutinesState>
-    implements $RoutinesStateCopyWith<$Res> {
-  _$RoutinesStateCopyWithImpl(this._value, this._then);
+class _$RoutineStateCopyWithImpl<$Res, $Val extends RoutineState>
+    implements $RoutineStateCopyWith<$Res> {
+  _$RoutineStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,25 +57,25 @@ class _$RoutinesStateCopyWithImpl<$Res, $Val extends RoutinesState>
       routines: null == routines
           ? _value.routines
           : routines // ignore: cast_nullable_to_non_nullable
-              as Map<String, Routine>,
+              as List<Routine>,
     ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$_RoutinesStateCopyWith<$Res>
-    implements $RoutinesStateCopyWith<$Res> {
+    implements $RoutineStateCopyWith<$Res> {
   factory _$$_RoutinesStateCopyWith(
           _$_RoutinesState value, $Res Function(_$_RoutinesState) then) =
       __$$_RoutinesStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? activeIdRoutine, Map<String, Routine> routines});
+  $Res call({String? activeIdRoutine, List<Routine> routines});
 }
 
 /// @nodoc
 class __$$_RoutinesStateCopyWithImpl<$Res>
-    extends _$RoutinesStateCopyWithImpl<$Res, _$_RoutinesState>
+    extends _$RoutineStateCopyWithImpl<$Res, _$_RoutinesState>
     implements _$$_RoutinesStateCopyWith<$Res> {
   __$$_RoutinesStateCopyWithImpl(
       _$_RoutinesState _value, $Res Function(_$_RoutinesState) _then)
@@ -95,7 +95,7 @@ class __$$_RoutinesStateCopyWithImpl<$Res>
       routines: null == routines
           ? _value._routines
           : routines // ignore: cast_nullable_to_non_nullable
-              as Map<String, Routine>,
+              as List<Routine>,
     ));
   }
 }
@@ -104,22 +104,22 @@ class __$$_RoutinesStateCopyWithImpl<$Res>
 
 class _$_RoutinesState implements _RoutinesState {
   _$_RoutinesState(
-      {this.activeIdRoutine, required final Map<String, Routine> routines})
+      {this.activeIdRoutine, required final List<Routine> routines})
       : _routines = routines;
 
   @override
   final String? activeIdRoutine;
-  final Map<String, Routine> _routines;
+  final List<Routine> _routines;
   @override
-  Map<String, Routine> get routines {
-    if (_routines is EqualUnmodifiableMapView) return _routines;
+  List<Routine> get routines {
+    if (_routines is EqualUnmodifiableListView) return _routines;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_routines);
+    return EqualUnmodifiableListView(_routines);
   }
 
   @override
   String toString() {
-    return 'RoutinesState(activeIdRoutine: $activeIdRoutine, routines: $routines)';
+    return 'RoutineState(activeIdRoutine: $activeIdRoutine, routines: $routines)';
   }
 
   @override
@@ -143,15 +143,15 @@ class _$_RoutinesState implements _RoutinesState {
       __$$_RoutinesStateCopyWithImpl<_$_RoutinesState>(this, _$identity);
 }
 
-abstract class _RoutinesState implements RoutinesState {
+abstract class _RoutinesState implements RoutineState {
   factory _RoutinesState(
       {final String? activeIdRoutine,
-      required final Map<String, Routine> routines}) = _$_RoutinesState;
+      required final List<Routine> routines}) = _$_RoutinesState;
 
   @override
   String? get activeIdRoutine;
   @override
-  Map<String, Routine> get routines;
+  List<Routine> get routines;
   @override
   @JsonKey(ignore: true)
   _$$_RoutinesStateCopyWith<_$_RoutinesState> get copyWith =>

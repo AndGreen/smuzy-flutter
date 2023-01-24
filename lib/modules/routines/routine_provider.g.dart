@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$RoutinesHash() => r'5e9065f946ff46a33189f78d63fc62c69c2f2879';
+String _$RoutinesHash() => r'74fa36b5fc368397eae2b74eabacfc6b666dbd13';
 
 /// See also [Routines].
-final routinesProvider = AutoDisposeNotifierProvider<Routines, RoutinesState>(
+final routinesProvider = AutoDisposeNotifierProvider<Routines, RoutineState>(
   Routines.new,
   name: r'routinesProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$RoutinesHash,
 );
-typedef RoutinesRef = AutoDisposeNotifierProviderRef<RoutinesState>;
+typedef RoutinesRef = AutoDisposeNotifierProviderRef<RoutineState>;
 
-abstract class _$Routines extends AutoDisposeNotifier<RoutinesState> {
+abstract class _$Routines extends AutoDisposeNotifier<RoutineState> {
   @override
-  RoutinesState build();
+  RoutineState build();
 }

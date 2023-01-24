@@ -3,58 +3,58 @@ import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
 
-part 'routines_provider.freezed.dart';
-part 'routines_provider.g.dart';
+part 'routine_provider.freezed.dart';
+part 'routine_provider.g.dart';
 
 @freezed
-class RoutinesState with _$RoutinesState {
-  factory RoutinesState({
+class RoutineState with _$RoutineState {
+  factory RoutineState({
     String? activeIdRoutine,
-    required Map<RoutineId, Routine> routines,
+    required List<Routine> routines,
   }) = _RoutinesState;
 }
 
 @riverpod
 class Routines extends _$Routines {
   @override
-  RoutinesState build() {
+  RoutineState build() {
     var routines = RoutinesRepository.getRoutines();
     if (routines.isEmpty) {
-      routines = {for (var routine in defaultRoutines) routine.id: routine};
-      RoutinesRepository.saveRoutines(routines);
+      RoutinesRepository.saveRoutines(defaultRoutines);
     }
-    return RoutinesState(routines: routines);
+    return RoutineState(routines: routines);
   }
 
-  restoreRoutines(Map<RoutineId, Routine> routines) {
+  restoreRoutines(List<Routine> routines) async {
+    await RoutinesRepository.clear();
     state = state.copyWith(routines: routines);
     RoutinesRepository.saveRoutines(routines);
   }
 
   updateRoutine(Routine updatedRoutine) {
     state = state.copyWith(
-      routines: state.routines.map((id, routine) {
+      routines: state.routines.map((routine) {
         if (routine.id == updatedRoutine.id) {
-          return MapEntry(routine.id, updatedRoutine);
+          return updatedRoutine;
         }
-        return MapEntry(routine.id, routine);
-      }),
+        return routine;
+      }).toList(),
     );
+
     RoutinesRepository.saveRoutines(state.routines);
   }
 
   addNewRoutine(Routine newRoutine) {
     state = state.copyWith(
-      routines: {...state.routines, newRoutine.id: newRoutine},
+      routines: [...state.routines, newRoutine],
     );
     RoutinesRepository.saveRoutines(state.routines);
   }
 
   deleteRoutine({required RoutineId routineId}) {
     state = state.copyWith(
-      routines: Map.fromEntries(
-        state.routines.entries.where((entry) => entry.key != routineId),
-      ),
+      routines:
+          state.routines.where((routine) => routine.id != routineId).toList(),
     );
     RoutinesRepository.saveRoutines(state.routines);
   }

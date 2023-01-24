@@ -18,8 +18,9 @@ class RoutineAdapter extends TypeAdapter<Routine> {
     };
     return Routine(
       id: fields[0] as String,
+      color: fields[1] as Color,
       title: fields[2] as String,
-    ).._color = fields[1] as int;
+    );
   }
 
   @override
@@ -29,7 +30,7 @@ class RoutineAdapter extends TypeAdapter<Routine> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj._color)
+      ..write(obj.color)
       ..writeByte(2)
       ..write(obj.title);
   }
@@ -51,12 +52,12 @@ class RoutineAdapter extends TypeAdapter<Routine> {
 
 Routine _$RoutineFromJson(Map<String, dynamic> json) => Routine(
       id: json['id'] as String,
-      color: json['color'] ?? Colors.black,
+      color: const ColorSerialiser().fromJson(json['color'] as int),
       title: json['title'] as String,
     );
 
 Map<String, dynamic> _$RoutineToJson(Routine instance) => <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
       'color': const ColorSerialiser().toJson(instance.color),
+      'title': instance.title,
     };

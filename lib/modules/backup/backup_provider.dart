@@ -16,7 +16,7 @@ part 'backup_provider.g.dart';
 @riverpod
 class Backup extends _$Backup {
   @override
-  Backup build() => Backup();
+  int build() => 0;
 
   saveDataToFile() async {
     var routines = RoutinesRepository.getRoutines();

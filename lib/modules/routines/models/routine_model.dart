@@ -25,19 +25,16 @@ class Routine {
   @HiveField(0)
   final RoutineId id;
   @HiveField(1)
-  late int _color;
+  @ColorSerialiser()
+  Color color;
   @HiveField(2)
   final String title;
 
-  @ColorSerialiser()
-  Color get color => Color(_color);
-  set color(Color color) => _color = color.value;
-
   Routine({
     required this.id,
-    color = Colors.black,
+    required this.color,
     required this.title,
-  }) : _color = color.value;
+  });
 
   factory Routine.fromJson(Map<String, dynamic> json) =>
       _$RoutineFromJson(json);
@@ -49,26 +46,26 @@ var defaultRoutines = [
   Routine(
     id: const Uuid().v4(),
     title: 'sleep',
-    color: AppColors.defaultRoutinesColors['teal'],
+    color: AppColors.defaultRoutinesColors['teal']!,
   ),
   Routine(
     id: const Uuid().v4(),
     title: 'sport',
-    color: AppColors.defaultRoutinesColors['orange'],
+    color: AppColors.defaultRoutinesColors['orange']!,
   ),
   Routine(
     id: const Uuid().v4(),
     title: 'eat',
-    color: AppColors.defaultRoutinesColors['lightGreen'],
+    color: AppColors.defaultRoutinesColors['lightGreen']!,
   ),
   Routine(
     id: const Uuid().v4(),
     title: 'work',
-    color: AppColors.defaultRoutinesColors['blueGray'],
+    color: AppColors.defaultRoutinesColors['blueGray']!,
   ),
   Routine(
     id: const Uuid().v4(),
     title: 'media',
-    color: AppColors.defaultRoutinesColors['black'],
+    color: AppColors.defaultRoutinesColors['black']!,
   )
 ];

@@ -21,28 +21,28 @@ class RoutineSection extends HookConsumerWidget {
       spacing: 10,
       runSpacing: 2,
       children: [
-        ...routinesState.routines.values.toList().map(
-              (routine) => GestureDetector(
-                onLongPress: () {
-                  Navigation.openModal(
-                    context: context,
-                    child: RoutineForm(
-                      routine: routine,
-                    ),
-                  );
-                },
-                child: RoutineButton(
-                  color: routine.color,
-                  title: routine.title,
-                  isActive: routine.id == routinesState.activeIdRoutine,
-                  onTap: () {
-                    ref
-                        .read(routinesProvider.notifier)
-                        .toggleActiveRoutine(routine);
-                  },
+        ...routinesState.routines.map(
+          (routine) => GestureDetector(
+            onLongPress: () {
+              Navigation.openModal(
+                context: context,
+                child: RoutineForm(
+                  routine: routine,
                 ),
-              ),
+              );
+            },
+            child: RoutineButton(
+              color: routine.color,
+              title: routine.title,
+              isActive: routine.id == routinesState.activeIdRoutine,
+              onTap: () {
+                ref
+                    .read(routinesProvider.notifier)
+                    .toggleActiveRoutine(routine);
+              },
             ),
+          ),
+        ),
         AddRoutineButton(
           onTap: () {
             Navigation.openModal(

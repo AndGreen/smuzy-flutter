@@ -11,10 +11,9 @@ class BackupData {
   });
 
   Map<BlockId, RoutineId?> history;
-  Map<RoutineId, Routine> routines;
+  List<Routine> routines;
 
   factory BackupData.fromJson(Map<String, dynamic> json) =>
       _$BackupDataFromJson(json);
-
   Map<String, dynamic> toJson() => _$BackupDataToJson(this);
 }

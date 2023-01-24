@@ -22,7 +22,7 @@ class RoutineForm extends HookConsumerWidget {
 
     var routines = ref.watch(routinesProvider).routines;
     var routinesEdit = ref.read(routinesProvider.notifier);
-    var usedColors = routines.values
+    var usedColors = routines
         .map((routine) => routine.color)
         .where((color) => color != routine?.color)
         .toSet();
