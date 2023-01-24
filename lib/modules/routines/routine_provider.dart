@@ -26,6 +26,23 @@ class Routines extends _$Routines {
     return RoutinesState(routines: routines);
   }
 
+  updateRoutine(Routine updatedRoutine) {
+    state = state.copyWith(
+      routines: state.routines.map((id, routine) {
+        if (routine.id == updatedRoutine.id) {
+          return MapEntry(routine.id, updatedRoutine);
+        }
+        return MapEntry(routine.id, routine);
+      }),
+    );
+  }
+
+  addNewRoutine(Routine newRoutine) {
+    state = state.copyWith(
+      routines: {...state.routines, newRoutine.id: newRoutine},
+    );
+  }
+
   toggleActiveRoutine(Routine newRoutine) {
     state = state.copyWith(
       activeIdRoutine:
