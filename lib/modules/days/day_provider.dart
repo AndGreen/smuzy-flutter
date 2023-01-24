@@ -27,6 +27,12 @@ class Day extends _$Day {
     return DaysRepository.getDaySlice(getDayBlockRange(day));
   }
 
+  // restore history from backup
+  restoreHistory(Map<BlockId, RoutineId?> history) {
+    state = state.copyWith(visibleDayGrid: history);
+    DaysRepository.restoreFullHistory(history);
+  }
+
   colorizeDayBlock(BlockId blockId, RoutineId? routineId) {
     state = state.copyWith(
       visibleDayGrid: {...state.visibleDayGrid, blockId: routineId},

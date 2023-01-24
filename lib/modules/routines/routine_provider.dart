@@ -26,6 +26,11 @@ class Routines extends _$Routines {
     return RoutinesState(routines: routines);
   }
 
+  restoreRoutines(Map<RoutineId, Routine> routines) {
+    state = state.copyWith(routines: routines);
+    RoutinesRepository.saveRoutines(routines);
+  }
+
   updateRoutine(Routine updatedRoutine) {
     state = state.copyWith(
       routines: state.routines.map((id, routine) {

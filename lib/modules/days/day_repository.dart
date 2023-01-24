@@ -20,11 +20,18 @@ class DaysRepository {
     return result;
   }
 
-  static Map<BlockId, RoutineId?> getAllHistory() {
+  static Map<BlockId, RoutineId?> getFullHistory() {
     Map<BlockId, RoutineId?> result =
         Hive.box<RoutineId>(daysBox).toMap().cast<BlockId, RoutineId?>();
 
     return result;
+  }
+
+  static restoreFullHistory(Map<BlockId, RoutineId?> history) {
+    Hive.box<RoutineId>(daysBox).clear();
+    history.forEach((blockId, routineId) {
+      saveBlock(blockId, routineId);
+    });
   }
 
   static void saveBlock(BlockId blockId, RoutineId? routineId) {

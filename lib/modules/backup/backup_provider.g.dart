@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'day_provider.dart';
+part of 'backup_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$DayHash() => r'a7ec0e5edb10c14b4b02ff7110dfa2c373bd7514';
+String _$BackupHash() => r'8aa949c78f7762bcedd46f9023723dddb67a1311';
 
-/// See also [Day].
-final dayProvider = AutoDisposeNotifierProvider<Day, DayState>(
-  Day.new,
-  name: r'dayProvider',
+/// See also [Backup].
+final backupProvider = AutoDisposeNotifierProvider<Backup, Backup>(
+  Backup.new,
+  name: r'backupProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$DayHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$BackupHash,
 );
-typedef DayRef = AutoDisposeNotifierProviderRef<DayState>;
+typedef BackupRef = AutoDisposeNotifierProviderRef<Backup>;
 
-abstract class _$Day extends AutoDisposeNotifier<DayState> {
+abstract class _$Backup extends AutoDisposeNotifier<Backup> {
   @override
-  DayState build();
+  Backup build();
 }

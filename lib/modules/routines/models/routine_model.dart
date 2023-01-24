@@ -19,8 +19,8 @@ class ColorSerialiser implements JsonConverter<Color, int> {
 typedef BlockId = int;
 typedef RoutineId = String;
 
-@HiveType(typeId: 0)
 @JsonSerializable()
+@HiveType(typeId: 0)
 class Routine {
   @HiveField(0)
   final RoutineId id;
