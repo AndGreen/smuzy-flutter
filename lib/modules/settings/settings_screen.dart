@@ -10,7 +10,7 @@ class SettingsScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var backupService = ref.watch(backupProvider);
+    var backupService = ref.read(backupProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(

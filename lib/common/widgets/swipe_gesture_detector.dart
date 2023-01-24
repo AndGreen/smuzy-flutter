@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class SwipeGestureDetector extends StatelessWidget {
+class SwipeGestureDetector extends HookWidget {
   const SwipeGestureDetector({
     super.key,
     required this.child,
@@ -15,11 +16,12 @@ class SwipeGestureDetector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onPanEnd: (details) {
-        if (details.velocity.pixelsPerSecond.dx < 1) {
-          if (onSwipeRightEnd != null) onSwipeRightEnd!();
-        } else {
+      onHorizontalDragEnd: (endDetails) {
+        double? velocity = endDetails.primaryVelocity;
+        if (velocity != null && velocity > 0) {
           if (onSwipeLeftEnd != null) onSwipeLeftEnd!();
+        } else {
+          if (onSwipeRightEnd != null) onSwipeRightEnd!();
         }
       },
       child: child,
