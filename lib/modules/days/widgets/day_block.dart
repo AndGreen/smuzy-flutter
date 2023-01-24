@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/days/day_provider.dart';

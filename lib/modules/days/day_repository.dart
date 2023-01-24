@@ -1,38 +1,37 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 
 typedef HistoryDatabase = Box<String>;
-const daysBoxTitle = 'daysHistory';
+const daysBox = 'daysHistory';
 
 class DaysRepository {
   static init() async {
-    await Hive.openBox<RoutineId>(daysBoxTitle);
+    await Hive.openBox<RoutineId>(daysBox);
   }
 
   static Map<BlockId, RoutineId?> getDaySlice(List<BlockId> blockRange) {
     Map<BlockId, RoutineId?> result = {};
 
     for (var blockId in blockRange) {
-      if (Hive.box<String>(daysBoxTitle).containsKey(blockId)) {
-        result[blockId] = Hive.box<String>(daysBoxTitle).get(blockId);
+      if (Hive.box<String>(daysBox).containsKey(blockId)) {
+        result[blockId] = Hive.box<String>(daysBox).get(blockId);
       }
     }
     return result;
   }
 
   static Map<BlockId, RoutineId?> getAllHistory() {
-    Map<BlockId, RoutineId?> result = {};
-
-    print(Hive.box<String>(daysBoxTitle).values.toList());
+    Map<BlockId, RoutineId?> result =
+        Hive.box<RoutineId>(daysBox).toMap().cast<BlockId, RoutineId?>();
 
     return result;
   }
 
   static void saveBlock(BlockId blockId, RoutineId? routineId) {
     if (routineId == null) {
-      Hive.box<RoutineId>(daysBoxTitle).delete(blockId);
+      Hive.box<RoutineId>(daysBox).delete(blockId);
     } else {
-      Hive.box<RoutineId>(daysBoxTitle).put(blockId, routineId);
+      Hive.box<RoutineId>(daysBox).put(blockId, routineId);
     }
   }
 }

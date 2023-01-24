@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:collection/collection.dart';
 import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/days/day_constants.dart';

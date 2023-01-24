@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:uuid/uuid.dart';
 
-part 'routine.g.dart';
+part 'routine_model.g.dart';
+
+class ColorSerialiser implements JsonConverter<Color, int> {
+  const ColorSerialiser();
+
+  @override
+  Color fromJson(int json) => Color(json);
+
+  @override
+  int toJson(Color color) => color.value;
+}
 
 typedef BlockId = int;
 typedef RoutineId = String;
 
+@JsonSerializable()
 @HiveType(typeId: 0)
 class Routine {
   @HiveField(0)
@@ -17,6 +29,7 @@ class Routine {
   @HiveField(2)
   final String title;
 
+  @ColorSerialiser()
   Color get color => Color(_color);
   set color(Color color) => _color = color.value;
 
@@ -25,6 +38,11 @@ class Routine {
     color = Colors.black,
     required this.title,
   }) : _color = color.value;
+
+  factory Routine.fromJson(Map<String, dynamic> json) =>
+      _$RoutineFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RoutineToJson(this);
 }
 
 var defaultRoutines = [

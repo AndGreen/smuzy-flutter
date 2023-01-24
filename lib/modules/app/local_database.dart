@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
 import 'package:smuzy_flutter/modules/days/day_repository.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
 
 class LocalDatabase {

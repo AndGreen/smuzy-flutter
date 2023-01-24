@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'routine.dart';
+part of 'routine_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
@@ -44,3 +44,19 @@ class RoutineAdapter extends TypeAdapter<Routine> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Routine _$RoutineFromJson(Map<String, dynamic> json) => Routine(
+      id: json['id'] as String,
+      color: json['color'] ?? Colors.black,
+      title: json['title'] as String,
+    );
+
+Map<String, dynamic> _$RoutineToJson(Routine instance) => <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'color': const ColorSerialiser().toJson(instance.color),
+    };

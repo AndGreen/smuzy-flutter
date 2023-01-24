@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
+import 'package:smuzy_flutter/modules/app/navigation.dart';
+import 'package:smuzy_flutter/modules/backup/backup_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -21,38 +23,29 @@ class SettingsScreen extends StatelessWidget {
         contentPadding: const EdgeInsets.all(0),
         sections: [
           SettingsSection(
-            // title: const Text('Data'),
             tiles: <SettingsTile>[
               SettingsTile(
-                // leading: const Icon(Icons.arrow_upward),
                 onPressed: (context) {
-                  // context.read<UserState>().saveDataToFile();
+                  BackupService().saveDataToFile();
                 },
                 title: const Text('Backup to file'),
               ),
               SettingsTile(
-                // leading: const Icon(Icons.arrow_downward),
                 onPressed: (context) async {
-                  // var res = await context
-                  //     .read<UserState>()
-                  //     .restoreDataFromFile(context);
-
-                  // if (!mounted) return;
-                  // if (res != null) {
-                  //   if (res) {
-                  //     showBottomNotification(
-                  //       context: context,
-                  //       message: "Backup restored",
-                  //       isSuccess: true,
-                  //     );
-                  //   } else {
-                  //     showBottomNotification(
-                  //       context: context,
-                  //       message: "Not corrected backup file",
-                  //       isSuccess: false,
-                  //     );
-                  //   }
-                  // }
+                  var isRestored = await BackupService().restoreDataFromFile();
+                  if (isRestored != null && isRestored) {
+                    Navigation.showNotification(
+                      context: context,
+                      message: "Backup restored",
+                      isSuccess: true,
+                    );
+                  } else {
+                    Navigation.showNotification(
+                      context: context,
+                      message: "Backup restore failed",
+                      isSuccess: false,
+                    );
+                  }
                 },
                 title: const Text('Restore backup'),
               ),

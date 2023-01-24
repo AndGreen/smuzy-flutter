@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:smuzy_flutter/modules/days/day_utils.dart';
 import 'package:smuzy_flutter/modules/days/day_repository.dart';
 

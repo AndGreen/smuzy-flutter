@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 
 typedef RoutinesDatabase = Box<Routine>;
 const routinesBoxTitle = 'routines';
@@ -9,7 +9,7 @@ class RoutinesRepository {
     await Hive.openBox<Routine>(routinesBoxTitle);
   }
 
-  static Map<RoutineId, Routine> restoreRoutines() {
+  static Map<RoutineId, Routine> getRoutines() {
     Map<RoutineId, Routine> result = {};
     Hive.box<Routine>(routinesBoxTitle).values.forEach((routine) {
       result[routine.id] = routine;

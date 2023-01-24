@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:smuzy_flutter/common/models/routine.dart';
+import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
 
@@ -18,7 +18,7 @@ class RoutinesState with _$RoutinesState {
 class Routines extends _$Routines {
   @override
   RoutinesState build() {
-    var routines = RoutinesRepository.restoreRoutines();
+    var routines = RoutinesRepository.getRoutines();
     if (routines.isEmpty) {
       routines = {for (var routine in defaultRoutines) routine.id: routine};
       RoutinesRepository.saveRoutines(routines);
