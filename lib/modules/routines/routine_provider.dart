@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
+import 'package:smuzy/modules/routines/routine_repository.dart';
 
 part 'routine_provider.freezed.dart';
 part 'routine_provider.g.dart';

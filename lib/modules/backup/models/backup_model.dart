@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
 
 part 'backup_model.g.dart';
 

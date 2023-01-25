@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
 
 typedef HistoryDatabase = Box<String>;
 const daysBox = 'daysHistory';

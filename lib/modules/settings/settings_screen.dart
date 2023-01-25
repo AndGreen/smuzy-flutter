@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/theme/fonts.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
-import 'package:smuzy_flutter/modules/backup/backup_provider.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/common/theme/fonts.dart';
+import 'package:smuzy/modules/app/navigation.dart';
+import 'package:smuzy/modules/backup/backup_provider.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class SettingsScreen extends HookConsumerWidget {

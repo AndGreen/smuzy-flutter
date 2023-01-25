@@ -2,7 +2,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
+import 'package:smuzy/modules/app/navigation.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

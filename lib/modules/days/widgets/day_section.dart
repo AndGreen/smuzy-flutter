@@ -2,11 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/widgets/swipe_gesture_detector.dart';
-import 'package:smuzy_flutter/modules/days/day_provider.dart';
-import 'package:smuzy_flutter/modules/days/widgets/day_grid.dart';
-import 'package:smuzy_flutter/modules/days/widgets/day_time_labels.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/common/widgets/swipe_gesture_detector.dart';
+import 'package:smuzy/modules/days/day_provider.dart';
+import 'package:smuzy/modules/days/widgets/day_grid.dart';
+import 'package:smuzy/modules/days/widgets/day_time_labels.dart';
 
 class DaySection extends HookConsumerWidget {
   const DaySection({super.key});

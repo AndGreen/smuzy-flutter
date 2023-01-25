@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/theme/fonts.dart';
-import 'package:smuzy_flutter/common/utils/dates.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
-import 'package:smuzy_flutter/modules/calendar/calendar_modal.dart';
-import 'package:smuzy_flutter/modules/days/day_provider.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/common/theme/fonts.dart';
+import 'package:smuzy/common/utils/dates.dart';
+import 'package:smuzy/modules/app/navigation.dart';
+import 'package:smuzy/modules/calendar/calendar_modal.dart';
+import 'package:smuzy/modules/days/day_provider.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:smuzy/common/theme/colors.dart';
 import 'package:uuid/uuid.dart';
 
 part 'routine_model.g.dart';

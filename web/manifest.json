@@ -1,6 +1,6 @@
 {
-    "name": "smuzy_flutter",
-    "short_name": "smuzy_flutter",
+    "name": "smuzy",
+    "short_name": "smuzy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

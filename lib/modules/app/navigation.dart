@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:smuzy_flutter/common/widgets/tab_navigation_scaffold.dart';
-import 'package:smuzy_flutter/modules/days/screens/day_screen.dart';
-import 'package:smuzy_flutter/modules/settings/settings_screen.dart';
+import 'package:smuzy/common/widgets/tab_navigation_scaffold.dart';
+import 'package:smuzy/modules/days/screens/day_screen.dart';
+import 'package:smuzy/modules/settings/settings_screen.dart';
 import 'package:another_flushbar/flushbar.dart';
 
 class Routes {

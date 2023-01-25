@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
+import 'package:smuzy/modules/app/navigation.dart';
 
 class TabNavigationScaffold extends HookConsumerWidget {
   const TabNavigationScaffold({super.key, required this.child});

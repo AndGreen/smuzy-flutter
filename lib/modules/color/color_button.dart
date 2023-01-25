@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:smuzy/common/theme/colors.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class ColorButton extends StatelessWidget {

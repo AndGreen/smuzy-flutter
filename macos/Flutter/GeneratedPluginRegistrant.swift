@@ -6,7 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import package_info_plus
-import path_provider_macos
+import path_provider_foundation
 import share_plus
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

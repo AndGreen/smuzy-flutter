@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/theme/fonts.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/common/theme/fonts.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class RoutineButton extends StatelessWidget {

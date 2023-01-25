@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/utils/dates.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
+import 'package:smuzy/common/utils/dates.dart';
+import 'package:smuzy/modules/app/navigation.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 

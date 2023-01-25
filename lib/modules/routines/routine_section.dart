@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/modules/app/navigation.dart';
-import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
-import 'package:smuzy_flutter/modules/routines/screens/routine_form.dart';
-import 'package:smuzy_flutter/modules/routines/widgets/add_routine_button.dart';
-import 'package:smuzy_flutter/modules/routines/widgets/routine_button.dart';
+import 'package:smuzy/modules/app/navigation.dart';
+import 'package:smuzy/modules/routines/routine_provider.dart';
+import 'package:smuzy/modules/routines/screens/routine_form.dart';
+import 'package:smuzy/modules/routines/widgets/add_routine_button.dart';
+import 'package:smuzy/modules/routines/widgets/routine_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class RoutineSection extends HookConsumerWidget {

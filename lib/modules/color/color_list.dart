@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/modules/color/color_button.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/modules/color/color_button.dart';
 
 class ColorList extends StatelessWidget {
   const ColorList({

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:smuzy/common/theme/colors.dart';
 
 class CupertinoTextInput extends StatelessWidget {
   const CupertinoTextInput({

@@ -1,4 +1,4 @@
-# smuzy_flutter
+# smuzy
 
 A new Flutter project.
 

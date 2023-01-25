@@ -1,4 +1,4 @@
-package com.example.smuzy_flutter
+package com.example.smuzy
 
 import io.flutter.embedding.android.FlutterActivity
 

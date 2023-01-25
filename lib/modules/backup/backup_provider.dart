@@ -5,11 +5,11 @@ import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smuzy_flutter/modules/backup/models/backup_model.dart';
-import 'package:smuzy_flutter/modules/days/day_provider.dart';
-import 'package:smuzy_flutter/modules/days/day_repository.dart';
-import 'package:smuzy_flutter/modules/routines/routine_provider.dart';
-import 'package:smuzy_flutter/modules/routines/routine_repository.dart';
+import 'package:smuzy/modules/backup/models/backup_model.dart';
+import 'package:smuzy/modules/days/day_provider.dart';
+import 'package:smuzy/modules/days/day_repository.dart';
+import 'package:smuzy/modules/routines/routine_provider.dart';
+import 'package:smuzy/modules/routines/routine_repository.dart';
 
 part 'backup_provider.g.dart';
 

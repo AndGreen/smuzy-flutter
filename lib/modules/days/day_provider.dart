@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
-import 'package:smuzy_flutter/modules/days/day_utils.dart';
-import 'package:smuzy_flutter/modules/days/day_repository.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
+import 'package:smuzy/modules/days/day_utils.dart';
+import 'package:smuzy/modules/days/day_repository.dart';
 
 part 'day_provider.freezed.dart';
 part 'day_provider.g.dart';

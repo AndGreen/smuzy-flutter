@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:smuzy_flutter/common/theme/colors.dart';
-import 'package:smuzy_flutter/common/utils/dates.dart';
-import 'package:smuzy_flutter/modules/days/day_constants.dart';
-import 'package:smuzy_flutter/modules/days/day_provider.dart';
-import 'package:smuzy_flutter/modules/days/day_utils.dart';
-import 'package:smuzy_flutter/modules/days/widgets/day_block.dart';
-import 'package:smuzy_flutter/modules/days/widgets/day_now_block.dart';
+import 'package:smuzy/common/theme/colors.dart';
+import 'package:smuzy/common/utils/dates.dart';
+import 'package:smuzy/modules/days/day_constants.dart';
+import 'package:smuzy/modules/days/day_provider.dart';
+import 'package:smuzy/modules/days/day_utils.dart';
+import 'package:smuzy/modules/days/widgets/day_block.dart';
+import 'package:smuzy/modules/days/widgets/day_now_block.dart';
 
 class DayGrid extends HookConsumerWidget {
   const DayGrid({

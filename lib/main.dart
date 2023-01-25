@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/modules/app/app.dart';
-import 'package:smuzy_flutter/modules/app/local_database.dart';
+import 'package:smuzy/modules/app/app.dart';
+import 'package:smuzy/modules/app/local_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

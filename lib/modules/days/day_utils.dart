@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy_flutter/modules/routines/models/routine_model.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
 import 'package:collection/collection.dart';
-import 'package:smuzy_flutter/common/utils/dates.dart';
-import 'package:smuzy_flutter/modules/days/day_constants.dart';
+import 'package:smuzy/common/utils/dates.dart';
+import 'package:smuzy/modules/days/day_constants.dart';
 
 BlockId getBlockId(DateTime day, [int? offset]) {
   int timestamp = day.toUtc().millisecondsSinceEpoch;
