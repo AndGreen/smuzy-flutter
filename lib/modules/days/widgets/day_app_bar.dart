@@ -19,6 +19,8 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
     var visibleDay = ref.watch(dayProvider).visibleDate;
 
     return AppBar(
+      // fix change appBar color on routines list scroll:
+      scrolledUnderElevation: 0.0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -32,7 +34,6 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
                     ref
                         .read(dayProvider.notifier)
                         .changeVisibleDate(selectedDate);
-                    Navigation.closeModal(context);
                   },
                 ),
               );

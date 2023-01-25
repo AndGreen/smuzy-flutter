@@ -19,14 +19,17 @@ class TabNavigationScaffold extends HookConsumerWidget {
     );
 
     return Scaffold(
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: currentIndex.value,
-        onTap: (i) {
-          currentIndex.value = i;
-          context.go(Navigation.tabs[i].link);
-        },
-        itemPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        items: Navigation.tabs.map((e) => e.item).toList(),
+      bottomNavigationBar: Container(
+        color: Theme.of(context).backgroundColor,
+        child: SalomonBottomBar(
+          currentIndex: currentIndex.value,
+          onTap: (i) {
+            currentIndex.value = i;
+            context.go(Navigation.tabs[i].link);
+          },
+          itemPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          items: Navigation.tabs.map((e) => e.item).toList(),
+        ),
       ),
       body: child,
     );
