@@ -6,22 +6,15 @@ class DayTimeLabels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
-        children: List.generate(
-          8,
-          (index) => SizedBox(
-            // TODO: fix dinamic height
-            height: 36,
-            child: Center(
-              child: Text(
-                '${(index * 3).toString().padLeft(2, '0')}:00',
-                style: const TextStyle(fontSize: 12),
-              ),
-            ),
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: List.generate(
+        8,
+        (index) => Text(
+          '${(index * 3).toString().padLeft(2, '0')}:00',
+          style: const TextStyle(fontSize: 12),
         ),
-      ).padding(vertical: 5),
-    ).padding(right: 10);
+      ),
+    ).padding(vertical: 5, right: 10);
   }
 }

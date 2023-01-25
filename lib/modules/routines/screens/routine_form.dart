@@ -73,40 +73,42 @@ class RoutineForm extends HookConsumerWidget {
           ).padding(right: 10)
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          CupertinoFormSection.insetGrouped(
-            backgroundColor: Colors.transparent,
-            margin: const EdgeInsets.all(0),
-            children: [
-              CupertinoTextInput(
-                label: 'Title',
-                autofocus: true,
-                initialValue: text.value,
-                onChanged: (value) {
-                  text.value = value;
-                },
-              ),
-            ],
-          ),
-          ColorList(
-            usedColors: usedColors,
-            activeColor: activeColor.value,
-            onColorTap: (color) {
-              activeColor.value = color;
-            },
-          ).padding(top: 30, bottom: 20),
-          if (!isNewRoutine)
-            ElevatedButton(
-              onPressed: () {
-                routinesEdit.deleteRoutine(routineId: routine!.id);
-                Navigation.closeModal(context);
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CupertinoFormSection.insetGrouped(
+              backgroundColor: Colors.transparent,
+              margin: const EdgeInsets.all(0),
+              children: [
+                CupertinoTextInput(
+                  label: 'Title',
+                  autofocus: true,
+                  initialValue: text.value,
+                  onChanged: (value) {
+                    text.value = value;
+                  },
+                ),
+              ],
+            ),
+            ColorList(
+              usedColors: usedColors,
+              activeColor: activeColor.value,
+              onColorTap: (color) {
+                activeColor.value = color;
               },
-              child: const Text('Delete Routine').padding(vertical: 15),
-            ).padding(vertical: 10)
-        ],
-      ).padding(vertical: 20, horizontal: 16),
+            ).padding(top: 30, bottom: 20),
+            if (!isNewRoutine)
+              ElevatedButton(
+                onPressed: () {
+                  routinesEdit.deleteRoutine(routineId: routine!.id);
+                  Navigation.closeModal(context);
+                },
+                child: const Text('Delete Routine').padding(vertical: 15),
+              ).padding(vertical: 10)
+          ],
+        ).padding(vertical: 20, horizontal: 16),
+      ),
     );
   }
 }
