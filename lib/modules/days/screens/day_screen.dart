@@ -12,7 +12,7 @@ class DayScreen extends StatelessWidget {
       appBar: const DayAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [DaySection(), RoutineSection()],
+        children: const [DaySection(), Expanded(child: RoutineSection())],
       ),
     );
   }

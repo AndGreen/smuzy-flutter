@@ -17,41 +17,44 @@ class RoutineSection extends HookConsumerWidget {
   ) {
     final routinesState = ref.watch(routinesProvider);
 
-    return Wrap(
-      spacing: 10,
-      runSpacing: 2,
-      children: [
-        ...routinesState.routines.map(
-          (routine) => GestureDetector(
-            onLongPress: () {
-              Navigation.openModal(
-                context: context,
-                child: RoutineForm(
-                  routine: routine,
-                ),
-              );
-            },
-            child: RoutineButton(
-              color: routine.color,
-              title: routine.title,
-              isActive: routine.id == routinesState.activeIdRoutine,
-              onTap: () {
-                ref
-                    .read(routinesProvider.notifier)
-                    .toggleActiveRoutine(routine);
+    return SingleChildScrollView(
+      child: Wrap(
+        spacing: 10,
+        runSpacing: 2,
+        // alignment: WrapAlignment.center,
+        children: [
+          ...routinesState.routines.map(
+            (routine) => GestureDetector(
+              onLongPress: () {
+                Navigation.openModal(
+                  context: context,
+                  child: RoutineForm(
+                    routine: routine,
+                  ),
+                );
               },
+              child: RoutineButton(
+                color: routine.color,
+                title: routine.title,
+                isActive: routine.id == routinesState.activeIdRoutine,
+                onTap: () {
+                  ref
+                      .read(routinesProvider.notifier)
+                      .toggleActiveRoutine(routine);
+                },
+              ),
             ),
           ),
-        ),
-        AddRoutineButton(
-          onTap: () {
-            Navigation.openModal(
-              context: context,
-              child: const RoutineForm(),
-            );
-          },
-        ),
-      ],
-    ).padding(vertical: 8, horizontal: 8);
+          AddRoutineButton(
+            onTap: () {
+              Navigation.openModal(
+                context: context,
+                child: const RoutineForm(),
+              );
+            },
+          ),
+        ],
+      ).padding(vertical: 8, horizontal: 8),
+    );
   }
 }
