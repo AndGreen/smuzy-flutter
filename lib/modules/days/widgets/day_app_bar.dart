@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
 import 'package:smuzy_flutter/common/utils/dates.dart';
 import 'package:smuzy_flutter/modules/app/navigation.dart';
@@ -21,6 +22,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
     return AppBar(
       // fix change appBar color on routines list scroll:
       scrolledUnderElevation: 0.0,
+
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -41,7 +43,12 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(getCurrentFormattedDay(visibleDay), style: AppFonts.title),
+                Text(
+                  getCurrentFormattedDay(visibleDay),
+                  style: AppFonts.title.copyWith(
+                    color: context.isDarkMode ? Colors.white : Colors.black,
+                  ),
+                ),
                 const Icon(
                   Ionicons.chevron_down,
                   size: 18,

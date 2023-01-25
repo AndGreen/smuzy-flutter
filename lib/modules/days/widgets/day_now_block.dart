@@ -29,13 +29,20 @@ class DayNowBlock extends HookWidget {
           height: blockSize,
         ).decorated(
           boxShadow: [
-            const BoxShadow(
-              color: Colors.black,
+            BoxShadow(
+              color: context.isDarkMode
+                  ? Colors.black
+                  : Colors.black.withOpacity(0.5),
               blurRadius: 5,
               blurStyle: BlurStyle.outer,
             ),
           ],
-          border: Border.all(width: 3, color: AppColors.active),
+          border: Border.all(
+            width: 3,
+            color: context.isDarkMode
+                ? AppColors.active
+                : context.colorScheme.background,
+          ),
         ),
       ),
     );

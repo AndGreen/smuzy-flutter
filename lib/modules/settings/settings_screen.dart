@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:smuzy_flutter/common/theme/fonts.dart';
 import 'package:smuzy_flutter/modules/app/navigation.dart';
 import 'package:smuzy_flutter/modules/backup/backup_provider.dart';
@@ -68,7 +69,7 @@ class SettingsScreen extends HookConsumerWidget {
             future: PackageInfo.fromPlatform().then((data) => data.version),
             builder: (context, snapshot) {
               return Text('Version ${snapshot.data}')
-                  .opacity(0.1)
+                  .opacity(context.isDarkMode ? 0.1 : 0.5)
                   .padding(vertical: 20);
             },
           )

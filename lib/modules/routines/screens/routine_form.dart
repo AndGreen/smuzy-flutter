@@ -38,7 +38,11 @@ class RoutineForm extends HookConsumerWidget {
           isNewRoutine ? 'New Routine' : 'Edit Routine',
           style: const TextStyle(fontSize: 18),
         ),
-        leading: const BackButton(color: AppColors.active),
+        leading: BackButton(
+          color: context.isDarkMode
+              ? AppColors.active
+              : context.colorScheme.primary,
+        ),
         actions: [
           TextButton(
             onPressed: isFormValid
@@ -66,7 +70,10 @@ class RoutineForm extends HookConsumerWidget {
                 'Save',
                 style: TextStyle(
                   fontSize: 18,
-                  color: AppColors.active.withOpacity(isFormValid ? 1 : 0.5),
+                  color: (context.isDarkMode
+                          ? AppColors.active
+                          : context.colorScheme.primary)
+                      .withOpacity(isFormValid ? 1 : 0.5),
                 ),
               ),
             ),
@@ -79,6 +86,10 @@ class RoutineForm extends HookConsumerWidget {
           children: [
             CupertinoFormSection.insetGrouped(
               backgroundColor: Colors.transparent,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: context.isDarkMode ? AppColors.gray : AppColors.lightBg,
+              ),
               margin: const EdgeInsets.all(0),
               children: [
                 CupertinoTextInput(

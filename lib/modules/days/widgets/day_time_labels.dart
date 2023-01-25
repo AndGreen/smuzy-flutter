@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class DayTimeLabels extends StatelessWidget {
@@ -12,8 +13,10 @@ class DayTimeLabels extends StatelessWidget {
         8,
         (index) => Text(
           '${(index * 3).toString().padLeft(2, '0')}:00',
-          style: const TextStyle(fontSize: 12),
-        ).opacity(0.3),
+          style: const TextStyle(
+            fontSize: 12,
+          ),
+        ).opacity(context.isDarkMode ? 0.3 : 0.4),
       ),
     ).padding(vertical: 5, right: 10);
   }

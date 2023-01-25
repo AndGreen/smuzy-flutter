@@ -17,11 +17,20 @@ class RoutineButton extends StatelessWidget {
   final Function onTap;
   final bool isActive;
 
-  Color _getButtonColor(bool isActive) {
-    if (isActive) {
-      return AppColors.white;
+  Color _getButtonColor(BuildContext context, bool isActive) {
+    //TODO: pattern matching
+    if (context.isDarkMode) {
+      return isActive ? AppColors.white : AppColors.grayDark;
     } else {
-      return AppColors.gray;
+      return isActive ? AppColors.grayDark : AppColors.white;
+    }
+  }
+
+  Color _getTextColor(BuildContext context, bool isActive) {
+    if (context.isDarkMode) {
+      return isActive ? AppColors.grayDark : AppColors.white;
+    } else {
+      return isActive ? AppColors.white : AppColors.grayLight;
     }
   }
 
@@ -36,7 +45,7 @@ class RoutineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: _getButtonColor(isActive),
+        backgroundColor: _getButtonColor(context, isActive),
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
@@ -55,7 +64,7 @@ class RoutineButton extends StatelessWidget {
               wordSpacing: 0,
               fontWeight: FontWeight.normal,
               fontFamily: 'Roboto',
-              color: isActive ? AppColors.grayDark : AppColors.white,
+              color: _getTextColor(context, isActive),
             ),
           )
         ],

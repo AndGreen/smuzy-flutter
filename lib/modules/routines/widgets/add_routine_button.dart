@@ -17,8 +17,12 @@ class AddRoutineButton extends StatelessWidget {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
         backgroundColor: Colors.transparent,
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        side: BorderSide(width: 1.0, color: Colors.white.withOpacity(0.15)),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        side: BorderSide(
+          width: 1.0,
+          color: (context.isDarkMode ? Colors.white : Colors.black)
+              .withOpacity(0.15),
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -34,7 +38,7 @@ class AddRoutineButton extends StatelessWidget {
           Text(
             'Add',
             style: AppFonts.text.copyWith(
-              color: AppColors.white,
+              color: context.isDarkMode ? Colors.white : Colors.black,
             ),
           )
         ],

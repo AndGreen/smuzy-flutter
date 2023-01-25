@@ -54,6 +54,9 @@ class DayBlock extends HookConsumerWidget {
         )
         ?.color;
 
+    final patternColor =
+        context.isDarkMode ? AppColors.grayDark : AppColors.borderLight;
+
     double rightBorderSide = getRightBorderSize(col);
     double bottomBorderSide = row != 7 ? 1 : 0;
 
@@ -63,8 +66,21 @@ class DayBlock extends HookConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: bottomBorderSide > 0 ? const BorderSide() : BorderSide.none,
-          right: BorderSide(width: rightBorderSide),
+          bottom: bottomBorderSide > 0
+              ? BorderSide(
+                  color: context.isDarkMode
+                      ? AppColors.grayDark
+                      : AppColors.borderLight,
+                )
+              : BorderSide.none,
+          right: col != 8
+              ? BorderSide(
+                  width: rightBorderSide,
+                  color: context.isDarkMode
+                      ? AppColors.grayDark
+                      : AppColors.borderLight,
+                )
+              : BorderSide.none,
         ),
       ),
       child: SizedBox(
@@ -79,12 +95,12 @@ class DayBlock extends HookConsumerWidget {
                     ? LinearGradient(
                         begin: Alignment.topLeft,
                         end: const Alignment(-0.8, -0.8),
-                        stops: const [0.0, 0.8, 0, 0],
+                        stops: const [0.0, 0.9, 0, 0],
                         colors: [
-                          blockColor ?? AppColors.grayBg,
-                          blockColor ?? AppColors.grayBg,
-                          AppColors.grayBg,
-                          AppColors.grayBg,
+                          blockColor ?? patternColor,
+                          blockColor ?? patternColor,
+                          patternColor,
+                          patternColor,
                         ],
                         tileMode: TileMode.repeated,
                       )

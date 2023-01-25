@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:smuzy_flutter/common/theme/colors.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 class ColorButton extends StatelessWidget {
   const ColorButton({
@@ -28,14 +30,22 @@ class ColorButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: color.withOpacity(isUsed ? 0.3 : 1),
           shape: BoxShape.circle,
-          border: isActive ? Border.all(color: Colors.white, width: 2) : null,
+          border: isActive
+              ? Border.all(
+                  color: context.isDarkMode ? Colors.white : Colors.black,
+                  width: 2,
+                )
+              : null,
         ),
         child: isActive || isUsed
-            ? const Center(
+            ? Center(
                 child: Icon(
                   Ionicons.checkmark_outline,
+                  color: context.isDarkMode
+                      ? Colors.white
+                      : (isActive ? Colors.white : Colors.black),
                   size: 23,
-                ),
+                ).opacity(isUsed ? 0.4 : 1),
               )
             : null,
       ),

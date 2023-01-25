@@ -31,7 +31,7 @@ class DaySection extends HookConsumerWidget {
             );
       },
       child: Container(
-        color: AppColors.grayBg,
+        color: context.isDarkMode ? AppColors.grayBg : AppColors.lightBg,
         padding: const EdgeInsets.all(10),
         child: Center(
           child: ConstrainedBox(

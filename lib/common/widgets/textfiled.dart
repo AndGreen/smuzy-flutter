@@ -36,7 +36,11 @@ class CupertinoTextInput extends StatelessWidget {
         placeholderStyle: TextStyle(color: Theme.of(context).focusColor),
         placeholder: placeholder,
         onChanged: onChanged,
-        style: const TextStyle(color: AppColors.active),
+        style: TextStyle(
+          color: context.isDarkMode
+              ? AppColors.active
+              : context.colorScheme.primary,
+        ),
       ),
     );
   }
