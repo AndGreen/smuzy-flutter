@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+const swipeSpeed = 1500;
+
 class SwipeGestureDetector extends HookWidget {
   const SwipeGestureDetector({
     super.key,
@@ -16,11 +18,12 @@ class SwipeGestureDetector extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onHorizontalDragEnd: (endDetails) {
-        double? velocity = endDetails.primaryVelocity;
-        if (velocity != null && velocity > 0) {
+      onHorizontalDragEnd: (DragEndDetails endDetails) {
+        double? speed = endDetails.velocity.pixelsPerSecond.dx;
+        if (speed > swipeSpeed) {
           if (onSwipeLeftEnd != null) onSwipeLeftEnd!();
-        } else {
+        }
+        if (speed < -swipeSpeed) {
           if (onSwipeRightEnd != null) onSwipeRightEnd!();
         }
       },
