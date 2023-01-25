@@ -13,7 +13,7 @@ class DayTimeLabels extends StatelessWidget {
         (index) => Text(
           '${(index * 3).toString().padLeft(2, '0')}:00',
           style: const TextStyle(fontSize: 12),
-        ),
+        ).opacity(0.3),
       ),
     ).padding(vertical: 5, right: 10);
   }
