@@ -21,7 +21,7 @@ class Routines extends _$Routines {
     var routines = RoutinesRepository.getRoutines();
     if (routines.isEmpty) {
       routines = defaultRoutines;
-      RoutinesRepository.saveRoutines(routines);
+      RoutinesRepository.updateRoutines(routines);
     }
     return RoutineState(routines: routines);
   }
@@ -29,7 +29,7 @@ class Routines extends _$Routines {
   restoreRoutines(List<Routine> routines) async {
     await RoutinesRepository.clear();
     state = state.copyWith(routines: routines);
-    RoutinesRepository.saveRoutines(routines);
+    RoutinesRepository.updateRoutines(routines);
   }
 
   updateRoutine(Routine updatedRoutine) {
@@ -42,14 +42,14 @@ class Routines extends _$Routines {
       }).toList(),
     );
 
-    RoutinesRepository.saveRoutines(state.routines);
+    RoutinesRepository.updateRoutines(state.routines);
   }
 
   addNewRoutine(Routine newRoutine) {
     state = state.copyWith(
       routines: [...state.routines, newRoutine],
     );
-    RoutinesRepository.saveRoutines(state.routines);
+    RoutinesRepository.updateRoutines(state.routines);
   }
 
   deleteRoutine({required RoutineId routineId}) {
@@ -57,7 +57,7 @@ class Routines extends _$Routines {
       routines:
           state.routines.where((routine) => routine.id != routineId).toList(),
     );
-    RoutinesRepository.saveRoutines(state.routines);
+    RoutinesRepository.updateRoutines(state.routines);
   }
 
   toggleActiveRoutine(Routine newRoutine) {

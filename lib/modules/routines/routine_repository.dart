@@ -17,7 +17,8 @@ class RoutinesRepository {
     return result;
   }
 
-  static void saveRoutines(List<Routine> routines) {
+  static void updateRoutines(List<Routine> routines) async {
+    await Hive.box<Routine>(routinesBox).clear();
     for (var routine in routines) {
       Hive.box<Routine>(routinesBox).put(routine.id, routine);
     }
