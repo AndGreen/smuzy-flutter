@@ -20,7 +20,8 @@ class Routines extends _$Routines {
   RoutineState build() {
     var routines = RoutinesRepository.getRoutines();
     if (routines.isEmpty) {
-      RoutinesRepository.saveRoutines(defaultRoutines);
+      routines = defaultRoutines;
+      RoutinesRepository.saveRoutines(routines);
     }
     return RoutineState(routines: routines);
   }
