@@ -344,14 +344,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.0"
-  functional_widget:
-    dependency: "direct dev"
-    description:
-      name: functional_widget
-      sha256: "58af369f6b882b5433e2232eaca0b86505167727c94975dd1bdac0f75c90d0b7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.10.1"
   functional_widget_annotation:
     dependency: "direct main"
     description:
