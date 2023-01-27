@@ -94,6 +94,7 @@ class RoutineForm extends HookConsumerWidget {
               children: [
                 CupertinoTextInput(
                   label: 'Title',
+                  textCapitalization: TextCapitalization.none,
                   autofocus: true,
                   initialValue: text.value,
                   onChanged: (value) {

@@ -12,6 +12,7 @@ class CupertinoTextInput extends StatelessWidget {
     this.initialValue,
     this.validator,
     this.placeholder,
+    this.textCapitalization = TextCapitalization.sentences,
   }) : super(key: key);
 
   final String label;
@@ -21,6 +22,7 @@ class CupertinoTextInput extends StatelessWidget {
   final void Function(String? value) onChanged;
   final String? Function(String? value)? validator;
   final String? initialValue;
+  final TextCapitalization textCapitalization;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class CupertinoTextInput extends StatelessWidget {
       prefix:
           Text(label, style: TextStyle(color: Theme.of(context).primaryColor)),
       child: CupertinoTextFormFieldRow(
-        textCapitalization: TextCapitalization.sentences,
+        textCapitalization: textCapitalization,
         autofocus: autofocus,
         controller: controller,
         validator: validator,
