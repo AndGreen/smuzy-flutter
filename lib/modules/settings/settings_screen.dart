@@ -27,8 +27,7 @@ class SettingsScreen extends HookConsumerWidget {
           Expanded(
             child: SettingsList(
               darkTheme: SettingsThemeData(
-                settingsListBackground:
-                    Theme.of(context).scaffoldBackgroundColor,
+                settingsListBackground: context.colorScheme.surface,
               ),
               contentPadding: const EdgeInsets.all(0),
               sections: [

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:smuzy/common/theme/colors.dart';
 import 'package:smuzy/modules/app/navigation.dart';
 
 class TabNavigationScaffold extends HookConsumerWidget {
@@ -20,7 +21,7 @@ class TabNavigationScaffold extends HookConsumerWidget {
 
     return Scaffold(
       bottomNavigationBar: Container(
-        color: Theme.of(context).backgroundColor,
+        color: context.colorScheme.background,
         child: SalomonBottomBar(
           currentIndex: currentIndex.value,
           onTap: (i) {

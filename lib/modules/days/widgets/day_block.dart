@@ -90,7 +90,8 @@ class DayBlock extends HookConsumerWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: blockColor?.withOpacity(0.8) ?? Colors.transparent,
+                color: blockColor?.withOpacity(context.isDarkMode ? 1 : 0.8) ??
+                    Colors.transparent,
                 gradient: blockId > nowBlockId
                     ? LinearGradient(
                         begin: Alignment.topLeft,

@@ -39,7 +39,6 @@ extension DarkMode on BuildContext {
     return brightness == Brightness.dark;
   }
 
-  ColorScheme get colorScheme {
-    return Theme.of(this).colorScheme;
-  }
+  ThemeData get theme => Theme.of(this);
+  ColorScheme get colorScheme => theme.colorScheme;
 }
