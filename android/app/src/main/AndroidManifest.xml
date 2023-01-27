@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smuzy">
+    package="com.andrgreen.smuzy">
    <application
         android:label="smuzy"
         android:name="${applicationName}"
