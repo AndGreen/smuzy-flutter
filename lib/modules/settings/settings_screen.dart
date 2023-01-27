@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -14,6 +15,7 @@ class SettingsScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var backupService = ref.read(backupProvider.notifier);
+    var packageInfo = useFuture(PackageInfo.fromPlatform());
 
     return Scaffold(
       appBar: AppBar(
@@ -43,19 +45,21 @@ class SettingsScreen extends HookConsumerWidget {
                       onPressed: (context) async {
                         var isRestored =
                             await backupService.restoreDataFromFile();
-                        if (isRestored != null && isRestored) {
-                          Navigation.showNotification(
-                            context: context,
-                            message: "Backup restored",
-                            isSuccess: true,
-                          );
-                        } else {
-                          Navigation.showNotification(
-                            context: context,
-                            message: "Backup restore failed",
-                            isSuccess: false,
-                          );
-                        }
+                        Future.delayed(Duration.zero, () {
+                          if (isRestored != null && isRestored) {
+                            Navigation.showNotification(
+                              context: context,
+                              message: "Backup restored",
+                              isSuccess: true,
+                            );
+                          } else {
+                            Navigation.showNotification(
+                              context: context,
+                              message: "Backup restore failed",
+                              isSuccess: false,
+                            );
+                          }
+                        });
                       },
                       title: const Text('Restore backup'),
                     ),
@@ -64,14 +68,9 @@ class SettingsScreen extends HookConsumerWidget {
               ],
             ),
           ),
-          FutureBuilder<String>(
-            future: PackageInfo.fromPlatform().then((data) => data.version),
-            builder: (context, snapshot) {
-              return Text('Version ${snapshot.data}')
-                  .opacity(context.isDarkMode ? 0.1 : 0.5)
-                  .padding(vertical: 20);
-            },
-          )
+          Text('Version ${packageInfo.data?.version}')
+              .opacity(context.isDarkMode ? 0.1 : 0.5)
+              .padding(vertical: 20)
         ],
       ),
     );
