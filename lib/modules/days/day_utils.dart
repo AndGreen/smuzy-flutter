@@ -11,7 +11,7 @@ BlockId getBlockId(DateTime day, [int? offset]) {
   return id;
 }
 
-// TODO: rewrite using records start and end instead generate array of blocks
+// TODO Dart3: rewrite using records start and end instead generate array of blocks
 List<BlockId> getDayBlockRange(DateTime day) {
   final firstDayBlockID = getBlockId(day.startOfDay);
   return List.generate(rowCount * colCount, (index) => firstDayBlockID + index);
