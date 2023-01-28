@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smuzy/common/theme/colors.dart';
-import 'package:smuzy/common/theme/fonts.dart';
-import 'package:styled_widget/styled_widget.dart';
+import 'package:smuzy/modules/routines/widgets/routine_label.dart';
 
 class RoutineButton extends StatelessWidget {
   const RoutineButton({
@@ -26,21 +25,6 @@ class RoutineButton extends StatelessWidget {
     }
   }
 
-  Color _getTextColor(BuildContext context, bool isActive) {
-    if (context.isDarkMode) {
-      return isActive ? AppColors.grayDark : AppColors.white;
-    } else {
-      return isActive ? AppColors.white : AppColors.grayLight;
-    }
-  }
-
-  Widget _colorCircle(Color color) {
-    return const SizedBox(
-      width: 18,
-      height: 18,
-    ).decorated(color: color, shape: BoxShape.circle).padding(right: 8);
-  }
-
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -54,20 +38,10 @@ class RoutineButton extends StatelessWidget {
       onPressed: () {
         onTap();
       },
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _colorCircle(color),
-          Text(
-            title,
-            style: AppFonts.text.copyWith(
-              wordSpacing: 0,
-              fontWeight: FontWeight.normal,
-              fontFamily: 'Roboto',
-              color: _getTextColor(context, isActive),
-            ),
-          )
-        ],
+      child: RoutineLabel(
+        color: color,
+        title: title,
+        isActive: isActive,
       ),
     );
   }

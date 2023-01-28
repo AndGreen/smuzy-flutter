@@ -4,12 +4,14 @@ import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smuzy/common/widgets/tab_navigation_scaffold.dart';
+import 'package:smuzy/modules/report/screens/report_screen.dart';
 import 'package:smuzy/modules/days/screens/day_screen.dart';
 import 'package:smuzy/modules/settings/settings_screen.dart';
 import 'package:another_flushbar/flushbar.dart';
 
 class Routes {
   final home = const Route(link: '/', screen: DayScreen());
+  final reports = const Route(link: '/reports', screen: ReportScreen());
   final settings = const Route(link: '/settings', screen: SettingsScreen());
 }
 
@@ -22,6 +24,13 @@ class Navigation {
       item: SalomonBottomBarItem(
         icon: const Icon(Ionicons.calendar),
         title: const Text("Home"),
+      ),
+    ),
+    Tab(
+      link: routes.reports.link,
+      item: SalomonBottomBarItem(
+        icon: const Icon(Ionicons.pie_chart),
+        title: const Text("Reports"),
       ),
     ),
     Tab(
@@ -46,6 +55,10 @@ class Navigation {
           GoRoute(
             path: routes.home.link,
             builder: (context, state) => routes.home.screen,
+          ),
+          GoRoute(
+            path: routes.reports.link,
+            builder: (context, state) => routes.reports.screen,
           ),
           GoRoute(
             path: routes.settings.link,

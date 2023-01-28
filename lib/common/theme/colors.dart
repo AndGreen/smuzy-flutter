@@ -10,6 +10,7 @@ class AppColors {
   static const lightBg = Color(0xfff2f2f7);
   static const border = Color(0xff1C1D21);
   static const borderLight = Color(0xFFC2C2C2);
+  static const green = Color(0xff26A258);
 }
 
 extension DarkMode on BuildContext {
