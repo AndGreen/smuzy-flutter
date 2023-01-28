@@ -24,7 +24,7 @@ class DayBlock extends HookConsumerWidget {
   final int nowBlockId;
 
   double getRightBorderSize(int index) {
-    // TODO: pattern matching:
+    // TODO Dart 3: pattern matching
     var borderSize = 1.0;
     if ((index + 1) % 3 == 0) {
       borderSize = 3;

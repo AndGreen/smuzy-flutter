@@ -21,7 +21,7 @@ class DayGrid extends HookConsumerWidget {
 
     var nowBlockId = useState(getBlockId(DateTime.now()));
 
-    // TODO: make cusom hook or use global state
+    // TODO made cusom hook or use global state
     useEffect(
       () {
         final time = Stream.periodic(const Duration(seconds: 1));

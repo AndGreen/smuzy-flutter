@@ -18,7 +18,7 @@ class RoutineButton extends StatelessWidget {
   final bool isActive;
 
   Color _getButtonColor(BuildContext context, bool isActive) {
-    //TODO: pattern matching
+    //TODO Dart3: pattern matching
     if (context.isDarkMode) {
       return isActive ? AppColors.white : AppColors.grayDark;
     } else {

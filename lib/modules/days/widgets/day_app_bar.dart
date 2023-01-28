@@ -3,10 +3,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:smuzy/common/theme/colors.dart';
 import 'package:smuzy/common/theme/fonts.dart';
-import 'package:smuzy/common/utils/dates.dart';
 import 'package:smuzy/modules/app/navigation.dart';
 import 'package:smuzy/modules/calendar/calendar_modal.dart';
 import 'package:smuzy/modules/days/day_provider.dart';
+import 'package:smuzy/modules/days/day_utils.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
@@ -44,7 +44,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  visibleDay.getFormatted(),
+                  getFormattedDayLabel(visibleDay),
                   style: AppFonts.title.copyWith(
                     color: context.isDarkMode ? Colors.white : Colors.black,
                   ),

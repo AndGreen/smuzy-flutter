@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:smuzy/modules/routines/models/routine_model.dart';
 import 'package:collection/collection.dart';
 import 'package:smuzy/common/utils/dates.dart';
@@ -23,4 +24,26 @@ Color? getRoutineColor(List<Routine> routines, RoutineId? routineId) {
         (element) => element.id == routineId,
       )
       ?.color;
+}
+
+String getFormattedDayLabel(DateTime day) {
+  var formattedDate = '';
+  var diffNow = day.startOfDay.difference(DateTime.now().startOfDay).inDays;
+  var dayOfWeek = DateFormat('E').format(DateTime.now());
+
+  switch (diffNow) {
+    case 0:
+      formattedDate = 'Today - $dayOfWeek';
+      break;
+    case 1:
+      formattedDate = 'Tomorrow - $dayOfWeek';
+      break;
+    case -1:
+      formattedDate = 'Yesterday - $dayOfWeek';
+      break;
+    default:
+      formattedDate = DateFormat('MM.dd.yy - ').format(day) + dayOfWeek;
+  }
+
+  return formattedDate.toLowerCase();
 }
