@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smuzy/common/theme/colors.dart';
-import 'package:uuid/uuid.dart';
 
 part 'routine_model.g.dart';
 
@@ -41,31 +39,3 @@ class Routine {
 
   Map<String, dynamic> toJson() => _$RoutineToJson(this);
 }
-
-var defaultRoutines = [
-  Routine(
-    id: const Uuid().v4(),
-    title: 'sleep',
-    color: AppColors.defaultRoutinesColors['teal']!,
-  ),
-  Routine(
-    id: const Uuid().v4(),
-    title: 'sport',
-    color: AppColors.defaultRoutinesColors['orange']!,
-  ),
-  Routine(
-    id: const Uuid().v4(),
-    title: 'eat',
-    color: AppColors.defaultRoutinesColors['lightGreen']!,
-  ),
-  Routine(
-    id: const Uuid().v4(),
-    title: 'work',
-    color: AppColors.defaultRoutinesColors['blueGray']!,
-  ),
-  Routine(
-    id: const Uuid().v4(),
-    title: 'media',
-    color: AppColors.defaultRoutinesColors['black']!,
-  )
-];

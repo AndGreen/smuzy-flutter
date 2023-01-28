@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smuzy/common/theme/colors.dart';
 import 'package:smuzy/modules/color/color_button.dart';
+import 'package:smuzy/modules/color/colors_constants.dart';
 
 class ColorList extends StatelessWidget {
   const ColorList({
@@ -21,7 +21,7 @@ class ColorList extends StatelessWidget {
         spacing: 20,
         runSpacing: 20,
         children: [
-          ...AppColors.defaultRoutinesColors.values
+          ...defaultRoutinesColors.values
               .map(
                 (color) => ColorButton(
                   onTap: (color) {
