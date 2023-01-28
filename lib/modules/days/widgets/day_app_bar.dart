@@ -44,7 +44,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  getCurrentFormattedDay(visibleDay),
+                  visibleDay.getFormatted(),
                   style: AppFonts.title.copyWith(
                     color: context.isDarkMode ? Colors.white : Colors.black,
                   ),
