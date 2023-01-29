@@ -2,11 +2,13 @@ import 'package:smuzy/modules/routines/models/routine_model.dart';
 
 class RoutineReport extends Routine {
   int diffCount;
+  int blockCount;
 
   RoutineReport({
     required super.id,
     required super.color,
     required super.title,
+    required this.blockCount,
     required this.diffCount,
   });
 }

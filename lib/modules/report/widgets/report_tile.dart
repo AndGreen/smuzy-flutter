@@ -26,16 +26,14 @@ class ReportTile extends StatelessWidget {
                 title: routineReport.title,
                 textPadding: 8,
               ).padding(vertical: 8),
-              ProgressLabel(
-                blockCount: routineReport.diffCount,
-                showDiff: false,
+              StaticProgressLabel(
+                blockCount: routineReport.blockCount,
               ).padding(right: 12),
             ],
           ),
         ),
         ProgressLabel(
           blockCount: routineReport.diffCount,
-          showDiff: true,
         ),
       ],
     );
