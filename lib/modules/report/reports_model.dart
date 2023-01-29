@@ -13,12 +13,11 @@ class RoutineReport extends Routine {
   });
 }
 
-// TODO add button for sort reports
 extension Sorter on List<RoutineReport> {
-  List<RoutineReport> sortPosNegZero() {
-    final zeroValues = where((i) => i.diffCount == 0).toList();
-    final positiveValues = where((i) => i.diffCount > 0).toList();
-    final negativeValues = where((i) => i.diffCount < 0).toList();
-    return [...positiveValues, ...negativeValues, ...zeroValues];
+  List<RoutineReport> sorted() {
+    var newList = toList();
+    newList.sort((a, b) => a.diffCount.compareTo(b.diffCount));
+    newList.sort((a, b) => b.blockCount.compareTo(a.blockCount));
+    return newList;
   }
 }
