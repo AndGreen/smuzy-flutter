@@ -20,7 +20,7 @@ class ProgressLabel extends StatelessWidget {
 
     if (!showDiff) {
       return Text(
-        '${hours}h ${menutes}m',
+        blockCount != 0 ? '${hours}h ${menutes}m' : '',
         style: TextStyle(
           color: context.colorScheme.onBackground,
           fontWeight: FontWeight.bold,

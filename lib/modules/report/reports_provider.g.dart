@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'routine_provider.dart';
+part of 'reports_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$RoutinesHash() => r'0d269c0753ae0eb508a387540101cdce6058cee2';
+String _$ReportsHash() => r'18cab4c7c5989e938f019642643c934685cc93a3';
 
-/// See also [Routines].
-final routinesProvider = AutoDisposeNotifierProvider<Routines, RoutineState>(
-  Routines.new,
-  name: r'routinesProvider',
+/// See also [Reports].
+final reportsProvider = AutoDisposeNotifierProvider<Reports, ReportsState>(
+  Reports.new,
+  name: r'reportsProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$RoutinesHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$ReportsHash,
 );
-typedef RoutinesRef = AutoDisposeNotifierProviderRef<RoutineState>;
+typedef ReportsRef = AutoDisposeNotifierProviderRef<ReportsState>;
 
-abstract class _$Routines extends AutoDisposeNotifier<RoutineState> {
+abstract class _$Reports extends AutoDisposeNotifier<ReportsState> {
   @override
-  RoutineState build();
+  ReportsState build();
 }

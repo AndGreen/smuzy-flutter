@@ -1,35 +1,22 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smuzy/common/theme/colors.dart';
-import 'package:smuzy/common/widgets/swipe_gesture_detector.dart';
-import 'package:smuzy/modules/days/day_provider.dart';
+import 'package:smuzy/modules/days/widgets/day_change_on_swipe.dart';
 import 'package:smuzy/modules/days/widgets/day_grid.dart';
 import 'package:smuzy/modules/days/widgets/day_time_labels.dart';
 
-class DaySection extends HookConsumerWidget {
+class DaySection extends StatelessWidget {
   const DaySection({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var dayState = ref.watch(dayProvider);
+  Widget build(BuildContext context) {
     var maxHeight = [
       MediaQuery.of(context).size.width * 0.74,
       MediaQuery.of(context).size.height * 0.35
     ].reduce(max);
 
-    return SwipeGestureDetector(
-      onSwipeLeftEnd: () {
-        ref.read(dayProvider.notifier).changeVisibleDate(
-              dayState.visibleDate.subtract(const Duration(days: 1)),
-            );
-      },
-      onSwipeRightEnd: () {
-        ref.read(dayProvider.notifier).changeVisibleDate(
-              dayState.visibleDate.add(const Duration(days: 1)),
-            );
-      },
+    return DayChangeOnSwipe(
       child: Container(
         color: context.isDarkMode ? AppColors.grayBg : AppColors.lightBg,
         padding: const EdgeInsets.all(10),

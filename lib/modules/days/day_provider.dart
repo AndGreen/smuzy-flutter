@@ -20,10 +20,13 @@ class Day extends _$Day {
   @override
   DayState build() {
     final today = DateTime.now();
-    return DayState(visibleDayGrid: _getDayGrid(today), visibleDate: today);
+    return DayState(
+      visibleDayGrid: getDayGrid(today),
+      visibleDate: today,
+    );
   }
 
-  _getDayGrid(DateTime day) {
+  Map<int, String?> getDayGrid(DateTime day) {
     return DaysRepository.getDaySlice(getDayBlockRange(day));
   }
 
@@ -43,7 +46,7 @@ class Day extends _$Day {
   changeVisibleDate(DateTime newDate) {
     state = state.copyWith(
       visibleDate: newDate,
-      visibleDayGrid: _getDayGrid(newDate),
+      visibleDayGrid: getDayGrid(newDate),
     );
   }
 }
