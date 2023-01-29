@@ -22,7 +22,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
     return AppBar(
       // fix change appBar color on routines list scroll:
       scrolledUnderElevation: 0.0,
-
+      backgroundColor: context.backgroundColor,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

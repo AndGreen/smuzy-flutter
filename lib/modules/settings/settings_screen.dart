@@ -19,6 +19,7 @@ class SettingsScreen extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: context.backgroundColor,
         title: const Text(
           'Settings',
           style: AppFonts.title,
@@ -29,7 +30,7 @@ class SettingsScreen extends HookConsumerWidget {
           Expanded(
             child: SettingsList(
               darkTheme: SettingsThemeData(
-                settingsListBackground: context.colorScheme.surface,
+                settingsListBackground: context.backgroundColor,
               ),
               contentPadding: const EdgeInsets.all(0),
               sections: [

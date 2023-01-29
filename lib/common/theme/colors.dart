@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -22,4 +23,7 @@ extension DarkMode on BuildContext {
 
   ThemeData get theme => Theme.of(this);
   ColorScheme get colorScheme => theme.colorScheme;
+  Color get backgroundColor => isDarkMode
+      ? colorScheme.background
+      : CupertinoColors.systemGroupedBackground;
 }

@@ -16,6 +16,7 @@ class ReportScreen extends HookConsumerWidget {
     var routinesReports = ref.watch(reportsProvider).routinesReports;
 
     return Scaffold(
+      backgroundColor: context.backgroundColor,
       appBar: const DayAppBar(),
       body: DayChangeOnSwipe(
         child: Column(
@@ -26,7 +27,7 @@ class ReportScreen extends HookConsumerWidget {
                   ? SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: CupertinoFormSection.insetGrouped(
-                        backgroundColor: context.colorScheme.background,
+                        backgroundColor: context.backgroundColor,
                         children: routinesReports
                             .map(
                               (r) => CupertinoFormRow(
