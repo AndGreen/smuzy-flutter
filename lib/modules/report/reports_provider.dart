@@ -40,7 +40,7 @@ class Reports extends _$Reports {
       var index =
           routinesReports.indexWhere((element) => element.id == routineId);
 
-      if (index > 0) {
+      if (index >= 0) {
         routinesReports[index].blockCount += 1;
         routinesReports[index].diffCount += 1;
       }
@@ -49,7 +49,7 @@ class Reports extends _$Reports {
     prevDayGrid.forEach((blockId, routineId) {
       var index =
           routinesReports.indexWhere((element) => element.id == routineId);
-      if (index > 0) routinesReports[index].diffCount -= 1;
+      if (index >= 0) routinesReports[index].diffCount -= 1;
     });
 
     return ReportsState(
