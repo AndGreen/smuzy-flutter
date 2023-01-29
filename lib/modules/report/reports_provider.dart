@@ -53,7 +53,8 @@ class Reports extends _$Reports {
     });
 
     return ReportsState(
-      routinesReports: routinesReports,
+      routinesReports: routinesReports
+        ..sort((a, b) => b.blockCount.compareTo(a.blockCount)),
     );
   }
 }
