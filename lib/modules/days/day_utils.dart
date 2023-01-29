@@ -29,7 +29,7 @@ Color? getRoutineColor(List<Routine> routines, RoutineId? routineId) {
 String getFormattedDayLabel(DateTime day) {
   var formattedDate = '';
   var diffNow = day.startOfDay.difference(DateTime.now().startOfDay).inDays;
-  var dayOfWeek = DateFormat('E').format(DateTime.now());
+  var dayOfWeek = DateFormat('E').format(day);
 
   switch (diffNow) {
     case 0:
