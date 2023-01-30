@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smuzy/modules/days/widgets/day_app_bar.dart';
 import 'package:smuzy/modules/days/widgets/day_section.dart';
-import 'package:smuzy/modules/routines/routine_section.dart';
+import 'package:smuzy/modules/routines/widgets/routine_list.dart';
 
 class DayScreen extends StatelessWidget {
   const DayScreen({super.key});
@@ -12,7 +12,7 @@ class DayScreen extends StatelessWidget {
       appBar: const DayAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [DaySection(), Expanded(child: RoutineSection())],
+        children: const [DaySection(), Expanded(child: RoutineList())],
       ),
     );
   }

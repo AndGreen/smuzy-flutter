@@ -7,8 +7,8 @@ import 'package:smuzy/modules/routines/widgets/add_routine_button.dart';
 import 'package:smuzy/modules/routines/widgets/routine_button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-class RoutineSection extends HookConsumerWidget {
-  const RoutineSection({super.key});
+class RoutineList extends HookConsumerWidget {
+  const RoutineList({super.key});
 
   @override
   Widget build(

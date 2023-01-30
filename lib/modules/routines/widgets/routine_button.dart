@@ -21,7 +21,9 @@ class RoutineButton extends StatelessWidget {
     if (context.isDarkMode) {
       return isActive ? AppColors.white : AppColors.grayDark;
     } else {
-      return isActive ? AppColors.grayDark : AppColors.white;
+      return isActive
+          ? context.colorScheme.primary.withOpacity(0.5)
+          : AppColors.white;
     }
   }
 
