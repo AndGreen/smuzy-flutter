@@ -564,9 +564,9 @@ packages:
     dependency: "direct main"
     description:
       path: modal_bottom_sheet
-      ref: HEAD
-      resolved-ref: d79185a564c6d1b1535568ea7dfef060e20a049d
-      url: "https://github.com/danReynolds/modal_bottom_sheet.git"
+      ref: "38c6f44d0c4205608618a676a907c2d104d00b52"
+      resolved-ref: "38c6f44d0c4205608618a676a907c2d104d00b52"
+      url: "https://github.com/jamesblasco/modal_bottom_sheet.git"
     source: git
     version: "2.1.2"
   package_config:
