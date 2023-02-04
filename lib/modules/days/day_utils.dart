@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:smuzy/modules/routines/models/routine_model.dart';
-import 'package:collection/collection.dart';
 import 'package:smuzy/common/utils/dates.dart';
 import 'package:smuzy/modules/days/day_constants.dart';
 
@@ -16,14 +14,6 @@ BlockId getBlockId(DateTime day, [int? offset]) {
 List<BlockId> getDayBlockRange(DateTime day) {
   final firstDayBlockID = getBlockId(day.startOfDay);
   return List.generate(rowCount * colCount, (index) => firstDayBlockID + index);
-}
-
-Color? getRoutineColor(List<Routine> routines, RoutineId? routineId) {
-  return routines
-      .firstWhereOrNull(
-        (element) => element.id == routineId,
-      )
-      ?.color;
 }
 
 String getFormattedDayLabel(DateTime day) {
