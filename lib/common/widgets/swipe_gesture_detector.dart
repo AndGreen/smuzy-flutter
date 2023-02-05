@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-const swipeSpeed = 1500;
+const swipeSpeed = 1300;
 
 class SwipeGestureDetector extends HookWidget {
   const SwipeGestureDetector({
