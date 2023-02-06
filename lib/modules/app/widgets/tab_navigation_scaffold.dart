@@ -14,7 +14,7 @@ class TabNavigationScaffold extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var currentIndex = useState(
-      Navigation.tabs.indexWhere(
+      Navigation.routes.tabs.indexWhere(
         (element) => element.link == GoRouter.of(context).location,
       ),
     );
@@ -26,10 +26,10 @@ class TabNavigationScaffold extends HookConsumerWidget {
           currentIndex: currentIndex.value,
           onTap: (i) {
             currentIndex.value = i;
-            context.go(Navigation.tabs[i].link);
+            context.go(Navigation.routes.tabs[i].link);
           },
           itemPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-          items: Navigation.tabs.map((e) => e.item).toList(),
+          items: Navigation.routes.tabs.map((e) => e.item).toList(),
         ),
       ),
       body: child,

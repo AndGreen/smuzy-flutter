@@ -3,44 +3,43 @@ import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:smuzy/common/widgets/tab_navigation_scaffold.dart';
+import 'package:smuzy/modules/app/widgets/tab_navigation_scaffold.dart';
 import 'package:smuzy/modules/report/screens/report_screen.dart';
 import 'package:smuzy/modules/days/screens/day_screen.dart';
 import 'package:smuzy/modules/settings/settings_screen.dart';
 import 'package:another_flushbar/flushbar.dart';
 
 class Routes {
-  final home = const Route(link: '/', screen: DayScreen());
-  final reports = const Route(link: '/reports', screen: ReportScreen());
-  final settings = const Route(link: '/settings', screen: SettingsScreen());
+  final home = TabRoute(
+    link: '/',
+    screen: DayScreen(),
+    item: SalomonBottomBarItem(
+      icon: Icon(Ionicons.calendar),
+      title: Text("Home"),
+    ),
+  );
+  final reports = TabRoute(
+    link: '/reports',
+    screen: ReportScreen(),
+    item: SalomonBottomBarItem(
+      icon: Icon(Ionicons.pie_chart),
+      title: Text("Reports"),
+    ),
+  );
+  final settings = TabRoute(
+    link: '/settings',
+    screen: SettingsScreen(),
+    item: SalomonBottomBarItem(
+      icon: Icon(Ionicons.settings_sharp),
+      title: Text("Settings"),
+    ),
+  );
+
+  List<Route> get tabs => [home, reports, settings];
 }
 
 class Navigation {
   static Routes routes = Routes();
-
-  static final tabs = [
-    Tab(
-      link: routes.home.link,
-      item: SalomonBottomBarItem(
-        icon: const Icon(Ionicons.calendar),
-        title: const Text("Home"),
-      ),
-    ),
-    Tab(
-      link: routes.reports.link,
-      item: SalomonBottomBarItem(
-        icon: const Icon(Ionicons.pie_chart),
-        title: const Text("Reports"),
-      ),
-    ),
-    Tab(
-      link: routes.settings.link,
-      item: SalomonBottomBarItem(
-        icon: const Icon(Ionicons.settings_sharp),
-        title: const Text("Settings"),
-      ),
-    ),
-  ];
 
   static var router = GoRouter(
     initialLocation: routes.home.link,
@@ -51,20 +50,9 @@ class Navigation {
             child: child,
           );
         },
-        routes: [
-          GoRoute(
-            path: routes.home.link,
-            builder: (context, state) => routes.home.screen,
-          ),
-          GoRoute(
-            path: routes.reports.link,
-            builder: (context, state) => routes.reports.screen,
-          ),
-          GoRoute(
-            path: routes.settings.link,
-            builder: (context, state) => routes.settings.screen,
-          ),
-        ],
+        routes: routes.tabs
+            .map((e) => GoRoute(path: e.link, builder: (_, __) => e.screen))
+            .toList(),
       )
     ],
   );
@@ -109,12 +97,12 @@ class Route {
   });
 }
 
-class Tab {
-  final String link;
+class TabRoute extends Route {
   final SalomonBottomBarItem item;
 
-  const Tab({
-    required this.link,
+  const TabRoute({
+    required super.link,
+    required super.screen,
     required this.item,
   });
 }
