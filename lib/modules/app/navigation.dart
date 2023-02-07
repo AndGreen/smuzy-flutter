@@ -12,30 +12,30 @@ import 'package:another_flushbar/flushbar.dart';
 class Routes {
   final home = TabRoute(
     link: '/',
-    screen: DayScreen(),
+    screen: const DayScreen(),
     item: SalomonBottomBarItem(
-      icon: Icon(Ionicons.calendar),
-      title: Text("Home"),
+      icon: const Icon(Ionicons.calendar),
+      title: const Text("Home"),
     ),
   );
   final reports = TabRoute(
     link: '/reports',
-    screen: ReportScreen(),
+    screen: const ReportScreen(),
     item: SalomonBottomBarItem(
-      icon: Icon(Ionicons.pie_chart),
-      title: Text("Reports"),
+      icon: const Icon(Ionicons.pie_chart),
+      title: const Text("Reports"),
     ),
   );
   final settings = TabRoute(
     link: '/settings',
-    screen: SettingsScreen(),
+    screen: const SettingsScreen(),
     item: SalomonBottomBarItem(
-      icon: Icon(Ionicons.settings_sharp),
-      title: Text("Settings"),
+      icon: const Icon(Ionicons.settings_sharp),
+      title: const Text("Settings"),
     ),
   );
 
-  List<Route> get tabs => [home, reports, settings];
+  List<TabRoute> get tabs => [home, reports, settings];
 }
 
 class Navigation {
