@@ -1,13 +1,13 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smuzy/modules/app/widgets/tab_navigation_scaffold.dart';
-import 'package:smuzy/modules/report/screens/report_screen.dart';
 import 'package:smuzy/modules/days/screens/day_screen.dart';
+import 'package:smuzy/modules/report/screens/report_screen.dart';
 import 'package:smuzy/modules/settings/settings_screen.dart';
-import 'package:another_flushbar/flushbar.dart';
 
 class Routes {
   final home = TabRoute(
@@ -53,7 +53,7 @@ class Navigation {
         routes: routes.tabs
             .map((e) => GoRoute(path: e.link, builder: (_, __) => e.screen))
             .toList(),
-      )
+      ),
     ],
   );
 
@@ -61,10 +61,11 @@ class Navigation {
     required BuildContext context,
     required Widget child,
   }) {
-    showCupertinoModalBottomSheet(
+    CupertinoScaffold.showCupertinoModalBottomSheet(
       context: context,
       useRootNavigator: true,
       builder: (context) => child,
+      duration: const Duration(milliseconds: 350),
     );
   }
 

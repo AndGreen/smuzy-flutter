@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.andrgreen.smuzy">
-   <application
-        android:label="smuzy"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="smuzy_flutter"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

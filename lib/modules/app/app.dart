@@ -11,6 +11,19 @@ class App extends StatefulWidget {
   State<App> createState() => _AppState();
 }
 
+class NoAnimationPageTransitionsBuilder extends PageTransitionsBuilder {
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext? context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return child;
+  }
+}
+
 class _AppState extends State<App> {
   @override
   void dispose() {
@@ -20,10 +33,10 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    var defaultTransition = const PageTransitionsTheme(
+    var defaultTransition = PageTransitionsTheme(
       builders: <TargetPlatform, PageTransitionsBuilder>{
-        TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
-        TargetPlatform.android: ZoomPageTransitionsBuilder(),
+        TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
+        TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
       },
     );
 

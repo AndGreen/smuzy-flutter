@@ -52,7 +52,7 @@ class DayAppBar extends HookConsumerWidget implements PreferredSizeWidget {
                 const Icon(
                   Ionicons.chevron_down,
                   size: 18,
-                ).padding(left: 5)
+                ).padding(left: 5),
               ],
             ).padding(horizontal: 10),
           ),

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'reports_provider.dart';
+part of 'goal_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,18 +29,18 @@ class _SystemHash {
   }
 }
 
-String _$ReportsHash() => r'0eda7d7e0d41b8d8aa344db8edd9ac087799ff0e';
+String _$DayHash() => r'665e91ce8b859623125c838d5b8e0bbf2af05c21';
 
-/// See also [Reports].
-final reportsProvider = AutoDisposeNotifierProvider<Reports, ReportsState>(
-  Reports.new,
-  name: r'reportsProvider',
+/// See also [Day].
+final dayProvider = AutoDisposeNotifierProvider<Day, GoalState>(
+  Day.new,
+  name: r'dayProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$ReportsHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$DayHash,
 );
-typedef ReportsRef = AutoDisposeNotifierProviderRef<ReportsState>;
+typedef DayRef = AutoDisposeNotifierProviderRef<GoalState>;
 
-abstract class _$Reports extends AutoDisposeNotifier<ReportsState> {
+abstract class _$Day extends AutoDisposeNotifier<GoalState> {
   @override
-  ReportsState build();
+  GoalState build();
 }

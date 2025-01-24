@@ -1,4 +1,4 @@
-package com.andrgreen.smuzy
+package com.azelenin.smuzy_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 

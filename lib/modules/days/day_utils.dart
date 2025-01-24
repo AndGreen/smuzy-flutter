@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
-import 'package:smuzy/modules/routines/models/routine_model.dart';
 import 'package:smuzy/common/utils/dates.dart';
 import 'package:smuzy/modules/days/day_constants.dart';
+import 'package:smuzy/modules/routines/models/routine_model.dart';
 
 BlockId getBlockId(DateTime day, [int? offset]) {
   int timestamp = day.toUtc().millisecondsSinceEpoch;

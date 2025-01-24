@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "dart.closingLabels": false,
+  "dart.fixOnSave": true,
+}

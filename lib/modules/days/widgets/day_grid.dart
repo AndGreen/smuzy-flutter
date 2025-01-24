@@ -50,6 +50,8 @@ class DayGrid extends HookConsumerWidget {
               height: blockSize * 8 + 2,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
+                color:
+                    context.isDarkMode ? AppColors.grayBg : AppColors.lightBg,
                 border: Border.all(
                   color: context.isDarkMode
                       ? AppColors.grayDark
